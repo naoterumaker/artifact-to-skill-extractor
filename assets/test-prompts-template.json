@@ -1,0 +1,41 @@
+{
+  "trigger_tests": [
+    {
+      "id": "trigger-001",
+      "prompt": "I have several real examples and want to turn the hidden workflow into a reusable AI agent skill.",
+      "expected": "should_trigger",
+      "reason": "Artifact-to-skill extraction request."
+    },
+    {
+      "id": "non-trigger-001",
+      "prompt": "Summarize this article in three bullets.",
+      "expected": "should_not_trigger",
+      "reason": "One-off summary, not skill extraction."
+    },
+    {
+      "id": "boundary-001",
+      "prompt": "Create a reusable skill for my process, but I cannot share any examples or notes.",
+      "expected": "ask_for_artifacts_or_mark_hypothesis",
+      "reason": "Grounded extraction needs source evidence."
+    }
+  ],
+  "functional_tests": [
+    {
+      "id": "functional-001",
+      "prompt": "Use these three artifacts to produce an extraction report and skill package.",
+      "expected_outputs": [
+        "source inventory",
+        "functional decomposition",
+        "candidate skill units",
+        "SKILL.md",
+        "evaluation prompts"
+      ],
+      "assertions": [
+        "core rules cite source evidence",
+        "trigger and non-trigger prompts are included",
+        "workflow has completion standards",
+        "boundaries and failure modes are explicit"
+      ]
+    }
+  ]
+}

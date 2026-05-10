@@ -1,0 +1,4 @@
+interface:
+  display_name: "Artifact to Skill Extractor"
+  short_description: "Turn concrete artifacts into reusable AI agent skills."
+  default_prompt: "Use artifact-to-skill-extractor to analyze the provided artifact or examples, extract reusable production knowledge, and package it as an AI agent skill with references, rubrics, and tests."

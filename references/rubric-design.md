@@ -11,6 +11,15 @@ Freeze the rubric before the Generator creates the test output. The Evaluator ma
 | Platform/objective | reflect delivery mechanics and KPI proxies | X dwell/readability, YouTube title-thumbnail promise |
 | Project-specific | capture the user's taste and constraints | voice, brand, forbidden motifs, required proof |
 
+For creative or hybrid systems, add only the layers supported by the capability contract:
+
+| Layer | Purpose |
+|---|---|
+| Doctrine consistency | check value priorities, audience relationship, epistemology, and anti-goals |
+| Grammar and medium fit | check structural relations and medium affordances |
+| Decision executability | check evidence, action, verifier, fallback, and agency |
+| Toolchain fit | check capability coverage, source of truth, editability, and recovery |
+
 ## Dimension Requirements
 
 Each dimension needs:
@@ -57,3 +66,11 @@ Separate pre-publication proxy quality from post-publication outcome quality.
 - Post-publication: actual impressions, CTR, retention, engagement, conversion.
 
 Never use an AI-only pre-publication score as proof that real distribution performance is guaranteed.
+
+## Doctrine Prediction
+
+A doctrine evaluator must not only judge whether an output resembles prior work. On a held-out decision opportunity, record the predicted selection or revision direction before revealing the actual choice. Score prediction accuracy, counterexamples, and scope. A retrospective explanation alone cannot promote doctrine.
+
+## Unsupported Layers
+
+If creator doctrine or tool behavior lacks eligible evidence, mark the dimension `not_applicable` and redistribute its weight before freezing the rubric. Do not award a high score for a layer that was never evidenced.

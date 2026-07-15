@@ -13,6 +13,19 @@ Choose an intermediate representation that preserves the relationships relevant 
 | Code/repository | interface and dependency map | call graph, tests, failure patterns |
 | Data/report | schema and metric definitions | transformation lineage and validation rules |
 
+After artifact observation, route induced knowledge by role:
+
+| Knowledge role | Preferred representation |
+|---|---|
+| doctrine, philosophy, value tensions | Markdown argument with evidence and counterexamples |
+| cross-case alignment | CSV, SQLite, or JSONL |
+| grammar and style relations | Markdown pattern plus stable typed fields when needed |
+| executable decision | validated JSON decision unit |
+| tool capabilities | JSON registry or database |
+| workflow and handoffs | execution DAG plus adapters or scripts |
+| activation and orchestration | lean `SKILL.md` |
+| quality | rubric, hard gates, reference comparisons, technical tests |
+
 ## Format Rules
 
 - Use Markdown for meaning, rationale, voice, interpretation, and examples.
@@ -20,6 +33,7 @@ Choose an intermediate representation that preserves the relationships relevant 
 - Use tables or graphs for relationships, comparisons, sequences, and state transitions.
 - Use code only for deterministic behavior that must be enforced.
 - Keep the raw artifact or a rights-safe pointer as the source of truth.
+- Do not place doctrine, evidence rows, tool capabilities, and executable graphs into one universal YAML document.
 
 ## Routing Questions
 

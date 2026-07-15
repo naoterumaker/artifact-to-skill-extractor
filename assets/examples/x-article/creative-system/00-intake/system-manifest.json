@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.3",
+  "project_id": "x-article-forward-test",
+  "profile": "creative",
+  "requires_doctrine": true,
+  "requires_grammar": true,
+  "requires_toolchain": false,
+  "target_system": {
+    "capability": "Create an original Japanese X Article from a permitted source while preserving evidence integrity and explaining a useful mechanism.",
+    "future_user": "Agent drafting source-grounded Japanese X Articles for human publication review.",
+    "execution_environment": "Text-capable agent with filesystem access; publication and live analytics remain human or platform-owned.",
+    "source_of_truth": "Markdown article draft plus source manifest and evidence ledger.",
+    "distribution_context": "Japanese X Article prepared for human publication review; live analytics remain external evidence."
+  },
+  "compilation_targets": [
+    "skill",
+    "markdown-article",
+    "evaluation-record"
+  ],
+  "known_limits": [
+    "The source corpus contains one article, so source-creator doctrine is not recoverable.",
+    "The project doctrine is user-confirmed and evaluation-derived rather than induced from a longitudinal creator corpus.",
+    "Live impressions, dwell time, and conversion remain untested."
+  ]
+}

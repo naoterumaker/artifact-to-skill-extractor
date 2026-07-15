@@ -18,23 +18,69 @@ from run_test_prompts import normalize_fixture, score_observations  # noqa: E402
 from score_evaluation import score_evaluation  # noqa: E402
 from validate_project import validate_project  # noqa: E402
 from validate_skill import validate_skill  # noqa: E402
+from validate_system_ir import (  # noqa: E402
+    validate_graph,
+    validate_registry,
+    validate_system_ir,
+)
 
 
 class ProjectScriptTests(unittest.TestCase):
-    def test_initialized_project_passes_structural_validation(self) -> None:
+    def test_initialized_profiles_pass_structural_validation(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            for profile in ("procedural", "creative", "hybrid"):
+                root = initialize_project(
+                    f"example-{profile}",
+                    Path(temporary_directory),
+                    profile=profile,
+                )
+                report = validate_project(root)
+                manifest = json.loads(
+                    (root / "00-intake/system-manifest.json").read_text(
+                        encoding="utf-8"
+                    )
+                )
+                contract = (root / "00-intake/capability-contract.yaml").read_text(
+                    encoding="utf-8"
+                )
+                skill_spec = (root / "11-generated-system/skill-spec.yaml").read_text(
+                    encoding="utf-8"
+                )
+
+                with self.subTest(profile=profile):
+                    self.assertTrue(report["valid"], report)
+                    self.assertEqual(manifest["profile"], profile)
+                    self.assertIn(f'system_profile: "{profile}"', contract)
+                    self.assertIn(f'system_profile: "{profile}"', skill_spec)
+                    self.assertEqual(
+                        manifest["requires_toolchain"], profile == "hybrid"
+                    )
+
+    def test_new_project_is_structural_but_not_complete(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             root = initialize_project(
-                "example-skill-project", Path(temporary_directory)
+                "incomplete-creative",
+                Path(temporary_directory),
+                profile="creative",
             )
-            report = validate_project(root)
+            structural = validate_system_ir(root)
+            complete = validate_system_ir(root, complete=True)
 
-        self.assertTrue(report["valid"], report)
-        self.assertEqual(report["errors"], [])
+        self.assertTrue(structural["valid"], structural)
+        self.assertEqual(
+            structural["warnings"],
+            ["structural IR validation only; use --complete before promotion"],
+        )
+        self.assertFalse(complete["valid"])
+        self.assertTrue(
+            any("must be non-empty" in error for error in complete["errors"]),
+            complete,
+        )
 
     def test_invalid_rubric_weight_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             root = initialize_project("bad-rubric", Path(temporary_directory))
-            rubric_path = root / "05-rubric/evaluation-rubric.json"
+            rubric_path = root / "09-evaluation-contract/evaluation-rubric.json"
             rubric = json.loads(rubric_path.read_text(encoding="utf-8"))
             rubric["dimensions"][0]["weight"] = 19
             rubric_path.write_text(json.dumps(rubric), encoding="utf-8")
@@ -71,6 +117,79 @@ class SkillValidatorTests(unittest.TestCase):
             with self.subTest(skill=skill_path.name):
                 report = validate_skill(skill_path, strict=True)
                 self.assertTrue(report["valid"], report)
+
+    def test_worked_system_ir_passes_complete_validation(self) -> None:
+        system_paths = (
+            ROOT / "assets/examples/x-article/creative-system",
+            ROOT / "assets/examples/image/creative-system",
+        )
+        for system_path in system_paths:
+            with self.subTest(system=system_path.parent.name):
+                report = validate_system_ir(system_path, complete=True)
+                self.assertTrue(report["valid"], report)
+                self.assertEqual(report["warnings"], [])
+
+
+class SystemIRValidatorTests(unittest.TestCase):
+    def test_required_capability_cannot_be_marked_unsupported(self) -> None:
+        registry = json.loads(
+            (ROOT / "assets/templates/tool-capability-registry.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        registry["required_capabilities"] = ["render-video"]
+        registry["unsupported_capabilities"] = ["render-video"]
+        registry["last_verified_at"] = "2026-07-16"
+        errors: list[str] = []
+
+        validate_registry(
+            registry,
+            "registry",
+            errors,
+            complete=True,
+            requires_toolchain=True,
+        )
+
+        self.assertTrue(any("unassigned capabilities" in item for item in errors))
+        self.assertTrue(
+            any("required capabilities are unsupported" in item for item in errors)
+        )
+
+    def test_unbounded_execution_cycle_is_rejected(self) -> None:
+        node = {
+            "capability": "test-capability",
+            "judgment_owner": "deterministic-rule",
+            "executor": "script",
+            "approval_owner": "none",
+            "state_owner": "test fixture",
+            "inputs": ["input"],
+            "outputs": ["output"],
+            "verifier": "fixture passes",
+            "retry_policy": {"maximum_attempts": 1, "retry_when": []},
+            "fallback": "stop",
+            "provenance": ["test"],
+        }
+        graph = {
+            "schema_version": "0.3",
+            "source_of_truth": "test fixture",
+            "nodes": [
+                {"id": "a", **node},
+                {"id": "b", **node},
+            ],
+            "edges": [
+                {"from": "a", "to": "b", "type": "artifact"},
+                {"from": "b", "to": "a", "type": "artifact"},
+            ],
+            "iteration_policy": {
+                "maximum_rounds": 3,
+                "stop_condition": "fixture passes",
+            },
+        }
+        errors: list[str] = []
+
+        validate_graph(graph, "graph", errors, complete=True, tool_ids=set())
+
+        self.assertIn("graph contains an unbounded cycle", errors)
 
 
 class EvaluationScoringTests(unittest.TestCase):
@@ -133,11 +252,32 @@ class EvaluationScoringTests(unittest.TestCase):
                 self.assertEqual(final_report["decision"], "pass")
                 self.assertEqual(final_report["total_score"], expected_final)
 
+    def test_system_rubric_and_result_templates_are_compatible(self) -> None:
+        rubric = json.loads(
+            (ROOT / "assets/templates/system-evaluation-rubric.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        result = json.loads(
+            (ROOT / "assets/templates/system-evaluation-result.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        for value in result["hard_gates"].values():
+            value["status"] = "pass"
+        for value in result["dimension_scores"].values():
+            value["score"] = 84
+
+        report = score_evaluation(rubric, result)
+
+        self.assertEqual(report["decision"], "pass")
+        self.assertEqual(report["total_score"], 84)
+
 
 class WorkedExampleFixtureTests(unittest.TestCase):
     def test_lifecycle_status_matches_current_evidence(self) -> None:
         status = (ROOT / "references/lifecycle-status.yaml").read_text(encoding="utf-8")
-        self.assertIn("version: 0.2.0", status)
+        self.assertIn("version: 0.3.0", status)
         self.assertIn("status: experimental", status)
         self.assertIn("x-article-forward-test", status)
         self.assertIn("image-forward-test", status)

@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.3",
+  "rubric_id": "system-rubric-001",
+  "frozen_before_generation": true,
+  "pass_contract": {
+    "total_score_minimum": 80,
+    "critical_dimension_minimum": 60,
+    "all_hard_gates_required": true,
+    "maximum_rounds": 3
+  },
+  "hard_gates": [
+    {
+      "id": "rights-safety-and-required-output",
+      "question": "Are required outputs present and rights, privacy, and safety constraints satisfied?"
+    },
+    {
+      "id": "evidence-integrity",
+      "question": "Are doctrine, grammar, and decision claims scoped to their actual evidence?"
+    },
+    {
+      "id": "execution-integrity",
+      "question": "Are required capabilities assigned or explicitly routed to a fallback?"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "intent-and-doctrine-alignment",
+      "layer": "doctrine",
+      "weight": 20,
+      "critical": true,
+      "question": "Does the output create the intended change while respecting verified or user-confirmed value priorities?",
+      "anchors": {
+        "0": "Contradicts the intended change or explicit doctrine.",
+        "60": "Meets the basic intent but shows material doctrine tension.",
+        "80": "Clearly follows scoped doctrine and resolves relevant value conflicts.",
+        "100": "Demonstrates exceptional doctrine alignment with complete evidence and no hidden contradiction."
+      },
+      "evidence_required": "Cite output decisions against supported doctrine rules and their scope."
+    },
+    {
+      "id": "grammar-and-medium-fit",
+      "layer": "grammar",
+      "weight": 20,
+      "critical": true,
+      "question": "Does the output use the relevant grammar and medium affordances without cloning source expression?",
+      "anchors": {
+        "0": "Breaks the required relations or copies source expression.",
+        "60": "Preserves some relations but has material medium or originality defects.",
+        "80": "Preserves required relations with strong medium fit and expressive distance.",
+        "100": "Uses the grammar inventively while preserving every required relation and medium constraint."
+      },
+      "evidence_required": "Cite retained relations, changed expression, and medium-specific checks."
+    },
+    {
+      "id": "decision-executability",
+      "layer": "decision-unit",
+      "weight": 20,
+      "critical": true,
+      "question": "Are decisions grounded, executable, verifiable, and recoverable?",
+      "anchors": {
+        "0": "Core choices are unsupported or not executable.",
+        "60": "Basic choices can run but evidence, verification, or fallback is incomplete.",
+        "80": "Core decisions have evidence, bounded actions, verifiers, and recovery.",
+        "100": "Every consequential decision is fully traceable, executable, and robust under failure."
+      },
+      "evidence_required": "Cite decision-unit fields and execution evidence for consequential choices."
+    },
+    {
+      "id": "toolchain-and-agency-fit",
+      "layer": "execution",
+      "weight": 15,
+      "critical": true,
+      "question": "Do tools, source of truth, agency boundaries, and recovery match the system?",
+      "anchors": {
+        "0": "A required capability, owner, or recovery route is missing.",
+        "60": "The stack runs with material opacity or handoff risk.",
+        "80": "Capabilities, tools, owners, state, retries, and fallbacks are coherent.",
+        "100": "The stack is fully inspectable, reproducible, recoverable, and efficient for the declared environment."
+      },
+      "evidence_required": "Cite capability assignments, source of truth, state ownership, and failure recovery."
+    },
+    {
+      "id": "output-quality-and-context-fit",
+      "layer": "artifact",
+      "weight": 25,
+      "critical": true,
+      "question": "Is the concrete output technically sound, expressive, original, and fit for its delivery context?",
+      "anchors": {
+        "0": "The output is missing, broken, unsafe, or unusable.",
+        "60": "The output is minimally usable with material quality or context defects.",
+        "80": "The output is technically sound, original, and clearly fit for delivery.",
+        "100": "The output is exceptional across technical, expressive, originality, and context criteria."
+      },
+      "evidence_required": "Cite the rendered or delivered output and relevant technical or platform checks."
+    }
+  ]
+}

@@ -5,9 +5,20 @@ description: Use when <specific trigger context>. Trigger on <phrases, artifact 
 
 # <Skill Title>
 
+## Status And Scope
+
+- Status: `experimental | active`
+- Profile: `procedural | creative | hybrid`
+- Evidence ceiling:
+- Known limits:
+
 ## Core Principle
 
 <One or two sentences explaining the production knowledge this skill preserves.>
+
+## Project Doctrine
+
+<Include only when creative choices depend on explicit value priorities. Do not present inferred creator philosophy as fact.>
 
 ## Inputs
 
@@ -30,8 +41,15 @@ description: Use when <specific trigger context>. Trigger on <phrases, artifact 
 
 ## Decision Rules
 
-| Situation | Do | Avoid |
-|---|---|---|
+```text
+WHEN <eligible context>
+IF <required evidence and preconditions>
+DO <bounded action>
+VERIFY <observable criteria>
+ELSE <fallback or escalation>
+```
+
+State the judgment owner, executor, approval owner, and state owner where they matter.
 
 ## Boundaries
 
@@ -42,6 +60,13 @@ description: Use when <specific trigger context>. Trigger on <phrases, artifact 
 ## Quality Check
 
 - 
+
+## Failure And Recovery
+
+- Retry condition:
+- Maximum attempts:
+- Fallback:
+- Human escalation:
 
 ## References
 

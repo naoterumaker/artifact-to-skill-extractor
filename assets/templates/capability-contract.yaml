@@ -1,6 +1,12 @@
-schema_version: "0.2"
+schema_version: "0.3"
 project_id: "replace-me"
+system_profile: "procedural" # procedural | creative | hybrid
 desired_capability: ""
+intended_change:
+  recipient_or_system: ""
+  from_state: ""
+  to_state: ""
+  observable_outcome: ""
 primary_archetype: ""
 secondary_archetypes: []
 future_user: ""
@@ -16,6 +22,8 @@ outputs:
   completion_standard: ""
 authority:
   agent_may_decide: []
+  deterministic_rules_may_decide: []
+  tools_may_execute: []
   human_approval_required: []
 quality_target:
   total_score_minimum: 80
@@ -29,5 +37,24 @@ content_context:
   primary_objective: null
   secondary_objectives: []
   audience_state: null
+doctrine_context:
+  recovered_creator_doctrine_requested: false
+  project_value_priorities: []
+  value_tensions: []
+  audience_relationship: null
+  accepted_evidence: []
+  anti_goals: []
+distribution_context:
+  channel: null
+  consumption_context: null
+  update_cadence: null
+  derivative_rules: []
+  expected_lifetime: null
+  outcome_measurement: []
+system_requirements:
+  doctrine_required: false
+  grammar_required: false
+  toolchain_required: false
+  source_of_truth: null
 assumptions: []
 open_questions: []

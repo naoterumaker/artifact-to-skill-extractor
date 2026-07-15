@@ -1,0 +1,154 @@
+{
+  "schema_version": "0.3",
+  "graph_id": "source-grounded-x-article-forward-test",
+  "source_of_truth": "assets/examples/x-article/final-round-2.md plus source-manifest.yaml",
+  "nodes": [
+    {
+      "id": "inspect-source",
+      "capability": "source-and-rights-analysis",
+      "judgment_owner": "model",
+      "executor": "model",
+      "approval_owner": "none",
+      "state_owner": "source manifest and evidence ledger",
+      "inputs": [
+        "permitted source",
+        "source manifest"
+      ],
+      "outputs": [
+        "move map",
+        "evidence ledger"
+      ],
+      "verifier": "Material claims, rights, and source locations are separated from inference.",
+      "retry_policy": {
+        "maximum_attempts": 2,
+        "retry_when": [
+          "A material claim lacks a source status or location."
+        ]
+      },
+      "fallback": "Narrow the source scope or request missing evidence and permission.",
+      "provenance": [
+        "source-manifest.yaml",
+        "move-map.md"
+      ]
+    },
+    {
+      "id": "choose-claim-frame",
+      "capability": "evidence-proportionate-claim-selection",
+      "judgment_owner": "model-with-evidence-ledger",
+      "executor": "model",
+      "approval_owner": "none",
+      "state_owner": "article brief",
+      "inputs": [
+        "move map",
+        "evidence ledger",
+        "project doctrine",
+        "candidate grammar"
+      ],
+      "outputs": [
+        "claim and body-shape brief"
+      ],
+      "verifier": "The selected certainty and body shape satisfy decision-001.",
+      "retry_policy": {
+        "maximum_attempts": 2,
+        "retry_when": [
+          "The planned hook exceeds evidence or does not lead to the mechanism."
+        ]
+      },
+      "fallback": "Use a non-quantitative mechanism hook or request stronger evidence.",
+      "provenance": [
+        "07-decision-units/decision-001.json",
+        "05-doctrine/doctrine-hypothesis.md",
+        "06-grammar/grammar-pattern.md"
+      ]
+    },
+    {
+      "id": "draft-article",
+      "capability": "original-mechanism-article-generation",
+      "judgment_owner": "model-with-project-doctrine",
+      "executor": "model",
+      "approval_owner": "none",
+      "state_owner": "Markdown article draft",
+      "inputs": [
+        "claim and body-shape brief",
+        "evidence ledger"
+      ],
+      "outputs": [
+        "Markdown X Article draft"
+      ],
+      "verifier": "All required reasoning roles are present and source expression is materially changed.",
+      "retry_policy": {
+        "maximum_attempts": 3,
+        "retry_when": [
+          "A rubric or hard-gate defect is routed back from evaluation."
+        ]
+      },
+      "fallback": "Return the best scoped draft with unresolved evidence gaps.",
+      "provenance": [
+        "claim and body-shape brief",
+        "evaluation-rubric.json"
+      ]
+    },
+    {
+      "id": "evaluate",
+      "capability": "article-quality-and-doctrine-evaluation",
+      "judgment_owner": "model-and-human",
+      "executor": "model",
+      "approval_owner": "human-for-publication",
+      "state_owner": "evaluation record",
+      "inputs": [
+        "Markdown X Article draft",
+        "source manifest",
+        "frozen rubric",
+        "project doctrine"
+      ],
+      "outputs": [
+        "evaluation result"
+      ],
+      "verifier": "All hard gates and weighted thresholds are calculated with output evidence.",
+      "retry_policy": {
+        "maximum_attempts": 1,
+        "retry_when": []
+      },
+      "fallback": "Route each issue to the lowest responsible layer and require human approval before publication.",
+      "provenance": [
+        "evaluation-rubric.json",
+        "evaluation-round-1.json",
+        "evaluation-round-2.json"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "inspect-source",
+      "to": "choose-claim-frame",
+      "type": "evidence"
+    },
+    {
+      "from": "choose-claim-frame",
+      "to": "draft-article",
+      "type": "approved-brief"
+    },
+    {
+      "from": "draft-article",
+      "to": "evaluate",
+      "type": "candidate-output"
+    },
+    {
+      "from": "evaluate",
+      "to": "choose-claim-frame",
+      "type": "iteration",
+      "maximum_rounds": 3,
+      "stop_condition": "all hard gates pass, critical dimensions are at least 60, and total score is at least 80"
+    }
+  ],
+  "iteration_policy": {
+    "maximum_rounds": 3,
+    "stop_condition": "all required verifiers pass"
+  },
+  "human_approval_gates": [
+    {
+      "after": "evaluate",
+      "required_when": "The draft will be published, a source-rights question remains, or a factual dispute is unresolved."
+    }
+  ]
+}

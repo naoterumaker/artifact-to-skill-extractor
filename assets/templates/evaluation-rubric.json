@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2",
+  "schema_version": "0.3",
   "rubric_id": "rubric-001",
   "frozen_before_generation": true,
   "pass_contract": {
@@ -34,7 +34,8 @@
         "60": "Meets the basic intent with material gaps.",
         "80": "Meets the intent clearly and reliably.",
         "100": "Exceeds the intent with precise evidence-backed execution."
-      }
+      },
+      "evidence_required": "Cite the output state change and capability contract."
     },
     {
       "id": "evidence-grounding",
@@ -47,7 +48,8 @@
         "60": "Partially traceable.",
         "80": "Core decisions are traceable.",
         "100": "Complete and auditable traceability."
-      }
+      },
+      "evidence_required": "Cite source, user-confirmed, or hypothesis links for core decisions."
     },
     {
       "id": "archetype-quality",
@@ -60,7 +62,8 @@
         "60": "Minimally usable.",
         "80": "Production-ready.",
         "100": "Exceptional."
-      }
+      },
+      "evidence_required": "Cite archetype-specific observable quality checks."
     },
     {
       "id": "platform-objective-fit",
@@ -73,7 +76,8 @@
         "60": "Basic fit.",
         "80": "Strong fit.",
         "100": "Excellent fit backed by current evidence."
-      }
+      },
+      "evidence_required": "Cite platform constraints and objective-specific proxy checks."
     },
     {
       "id": "project-specific-quality",
@@ -86,7 +90,8 @@
         "60": "Partially aligned.",
         "80": "Clearly aligned.",
         "100": "Distinctive and fully aligned."
-      }
+      },
+      "evidence_required": "Cite project constraints, taste rules, and output evidence."
     }
   ]
 }

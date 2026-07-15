@@ -4,7 +4,7 @@ The per-run repair loop fixes one output. Failure harvesting learns across runs 
 
 ## Failure Record
 
-Store each failure under the project's `09-failures/` directory.
+Store each failure under the project's `14-failures/` directory.
 
 ```yaml
 failure_id: fail-001
@@ -16,7 +16,7 @@ expected: ""
 observed: ""
 rubric_dimension: ""
 severity: critical | major | minor
-root_layer: output | skill | reference | asset | pattern | evidence | rubric
+root_layer: output | decision-unit | grammar | doctrine | tool | execution-graph | skill | reference | asset | pattern | evidence | rubric
 repair_applied: ""
 repair_result: fixed | partial | unchanged | regression
 privacy: public | private | restricted

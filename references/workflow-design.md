@@ -1,117 +1,87 @@
 # Workflow Design
 
-This document expands the v0.2 harness in `SKILL.md`. It is retained as a compatibility reference for users of v0.1.
+This is the expanded v0.3 compiler pipeline. `SKILL.md` remains the operative short orchestration layer.
 
-## Pipeline
+## Phase 0: Capability Contract
 
-### Phase 0: Capability Contract
+Define the desired capability, future user, execution environment, system profile, source of truth, trigger, inputs, outputs, completion standard, authority, quality target, rights, and prohibited behavior. Assume system construction is requested; do not waste a phase debating whether a reusable skill should exist.
 
-Define the capability, future user, execution environment, trigger, required inputs, output contract, quality target, and prohibited behavior. Assume skill construction is the requested outcome; do not spend a phase debating whether a skill should exist.
+## Phase 1: Corpus And Evidence Ceiling
 
-### Phase 1: Evidence Plan
+Inventory supplied artifacts before asking questions. Plan the strongest useful mix of finished outputs, comparable works, failures, revisions, accepted/rejected alternatives, traces, creator explanations, and outcomes. Record rights and source locations.
 
-Inventory supplied artifacts before asking questions. Separate:
+Set the maximum defensible output for each layer. One finished artifact supports observation and candidate grammar, not verified process, causality, or creator doctrine.
 
-- supplied evidence
-- missing evidence
-- user knowledge that requires confirmation
-- external research axes
-- rights and privacy constraints
+## Phase 2: Native Observation
 
-For research, define the question, preferred source types, minimum evidence, freshness class, and stop condition. Popularity is a discovery signal, not proof of quality.
+Choose the representation by mechanics and downstream use:
 
-### Phase 2: Native Observation
-
-Choose the representation by artifact mechanics:
-
-| Artifact | Primary representation |
+| Evidence | Primary representation |
 |---|---|
-| Text | Annotated Markdown, move map, argument graph, voice profile |
-| Image | Observation YAML or JSON plus interpretive Markdown |
-| Video | Timeline, shot map, audio/visual relation map |
-| Research | Evidence table, query log, contradiction graph |
-| Process | State machine, decision table, exception map |
-| Tool/API | Interface schema, state model, error/recovery table |
+| Text | annotated Markdown, argument/evidence map, language profile |
+| Image | spatial or scene record plus interpretive Markdown |
+| Video/audio | timeline, segment/shot map, audiovisual relation map |
+| Research | evidence table, query log, contradiction graph |
+| Process/trace | state machine, decision table, exception/recovery map |
+| Tool/API | interface schema, state model, error/recovery table |
 
-Serialization is not abstraction. A detailed image YAML can still encode one exact image.
+Serialization is not abstraction. Preserve observation, inference, user confirmation, and hypothesis as different statuses.
 
-### Phase 3: Evidence-Labeled Inference
+## Phase 3: Comparative Alignment
 
-Keep claims in separate classes:
+Align eligible decision opportunities across works, revisions, creators, accepted/rejected alternatives, and success/failure cases. Compare function, context, available alternatives, observed choice, outcome, and source location.
 
-- `observed`: directly present in the artifact
-- `inferred`: a plausible explanation of the production choice
-- `user-confirmed`: explicitly validated by the user or creator
-- `hypothesis`: useful but not yet adequately supported
+Repeated presence is an invariant candidate. Context-linked change is a conditional rule. Repeated rejection may reveal an anti-goal. Revision direction may reveal a value priority. Absence counts only when there was a real opportunity to include the element.
 
-Do not present inferred creator intent as observation.
+## Phase 4: Production-System Induction
 
-### Phase 4: Pattern Abstraction
+Compile supported layers:
 
-Convert observations into a generative pattern:
+1. Doctrine: purpose, value conflicts, audience relationship, epistemology, experience, quality stance, anti-goals, agency, and distribution.
+2. Grammar: composition and expression relations conditioned by medium, objective, audience, and tool affordance.
+3. Decision units: context, evidence, selection rule, action, parameters, invariants, verifier, fallback, provenance, confidence, and agency.
 
-1. State the starting and target audience/user state.
-2. Name the production function.
-3. Separate invariants from variables.
-4. Add constraints among variables.
-5. Add selection rules for variants.
-6. Record anti-patterns and anti-clone rules.
-7. Link every candidate invariant to source evidence.
+Keep recovered creator doctrine, user-confirmed project doctrine, external constraints, and model preference separate.
 
-One source yields candidate invariants. Comparative evidence or transfer tests are required before claiming universality.
+## Phase 5: Capability And Tool Planning
 
-### Phase 5: Rubric Freeze
+Decompose required operations before naming tools. Evaluate candidate CLI, API, MCP, SDK, skill, or GUI bridge by invocation, modality, granularity, source of truth, state visibility, partial editing, reproducibility, parameterization, batch behavior, preview, evaluation, human round-trip, constraints, license, and recovery.
 
-Define the rubric before generating the skill or test output. Combine:
+Assign judgment owner, executor, approval owner, and state owner. Build an execution graph with inspectable handoffs, verifiers, bounded retries, and fallbacks. Record unsupported capabilities explicitly.
 
-- universal quality, rights, and safety
-- skill archetype and modality quality
-- platform and objective fit
-- project-specific taste and constraints
+## Phase 6: Evaluation Freeze
 
-The default pass contract is total score `>= 80`, every critical dimension `>= 60`, all hard gates passing, and at most three rounds.
+Freeze the rubric before generation. Combine universal evidence/rights/originality gates with relevant doctrine, grammar, decision, toolchain, modality, platform, objective, and project criteria.
 
-### Phase 6: Skill Package
+Default contract:
 
-Use one coherent skill unless independent triggers or execution environments require separation.
+```text
+total score >= 80
+critical dimensions >= 60
+all hard gates pass
+maximum 3 rounds
+```
 
-| Knowledge | Destination |
-|---|---|
-| Trigger, decision routing, core procedure | `SKILL.md` |
-| Detailed methods, domain rules, examples | `references/` |
-| Templates and files copied into outputs | `assets/` |
-| Deterministic transforms and validators | `scripts/` |
-| Mutable run evidence and evaluations | Project workspace outside the installed skill |
+Unsupported layers are `not_applicable`, not automatic passes. Recovered doctrine also needs a preregistered held-out prediction.
 
-### Phase 7: Forward Test
+## Phase 7: Package Compilation
 
-Use the generated skill on an unseen but related input. Generate a real output, not only prompt tests. Evaluate that output with the frozen rubric.
+Compile the selected profile into the minimum executable package. Put lean activation and routing in `SKILL.md`, detailed reasoning in references, reusable output material in assets, deterministic operations in scripts or adapters, and mutable evidence outside the installed skill.
 
-### Phase 8: Repair Loop
+Validate the project structure and system intermediate representation before execution.
 
-Route each failure to the lowest responsible layer:
+## Phase 8: New Concrete And Evaluation
 
-1. current output
-2. generated `SKILL.md`
-3. reference knowledge
-4. asset template
-5. abstraction pattern
-6. source evidence
-7. evaluation rubric
+Run the package on an unseen related input. Preserve supported production relations while changing source-specific expression. Evaluate the actual output, not only the skill files.
 
-Repair, regenerate, and re-evaluate. Do not permanently modify the skill for a one-off defect unless it reveals a recurring rule.
+Route each defect to the lowest responsible layer: current output, decision unit, grammar, doctrine, tool assignment, execution graph, skill instruction, reference, asset, abstraction, source evidence, or rubric.
 
-### Phase 9: Promotion
+## Phase 9: Repair And Promotion
 
-Promote only when evidence, traceability, specificity, abstraction, anti-clone behavior, trigger quality, executability, boundaries, and output quality pass. Otherwise keep the result experimental, narrow its scope, or request stronger evidence.
+Patch the smallest responsible layer, regenerate, and re-evaluate for at most three rounds. Promote a permanent rule only when repeated evidence, explicit owner doctrine, a hard gate, or a deterministic validator justifies it.
+
+Promotion requires scoped evidence, traceability, trigger quality, executability, boundaries, output quality, prediction or transfer support, and no critical rights/safety failure. Otherwise retain `experimental`, narrow scope, or reject the candidate.
 
 ## Stop Conditions
 
-Stop and surface the gap when:
-
-- required evidence is unavailable or cannot be used lawfully
-- the desired outcome cannot be evaluated even by a credible proxy
-- three repair rounds fail the pass contract
-- contradictory sources cannot be resolved without a human decision
-
-Deliver the best auditable attempt with unresolved assumptions rather than silently inventing certainty.
+Stop and surface the gap when evidence cannot be obtained lawfully, a required capability has no viable executor or fallback, a credible evaluation is impossible, three rounds fail, or contradictions require human ownership. Return the best auditable state without inventing certainty.

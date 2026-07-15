@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.3",
+  "required_capabilities": [],
+  "tools": [],
+  "assignments": [],
+  "manual_fallbacks": [],
+  "unsupported_capabilities": [
+    "live-x-publication",
+    "post-publication-analytics",
+    "independent-audience-testing"
+  ],
+  "last_verified_at": "2026-07-16"
+}

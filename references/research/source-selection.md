@@ -37,6 +37,24 @@ Use Reddit and X to discover:
 
 Do not convert engagement counts or confident language into factual authority. Record claims as reported until independently supported.
 
+## Channel Roles
+
+| Channel | Primary role |
+|---|---|
+| Official documentation | current interfaces, constraints, policies, and supported behavior |
+| GitHub source and tests | implementation, schemas, executable workflows, and recovery behavior |
+| arXiv, OpenReview, proceedings | induction method, evaluation design, limitations, and generalization evidence |
+| GitHub Issues and Discussions | operational failures, granularity problems, and maintenance evidence |
+| Reddit and X | vocabulary, emerging tools, practitioner hypotheses, and links to stronger sources |
+| note | Japanese operational practice, tacit knowledge, and workflow narratives |
+| Zenn and Qiita | implementation details, Agent Skill structure, and engineering operations |
+
+Trace discovery posts back to code, official documentation, papers, actual artifacts, or measurable outcomes before treating them as evidence.
+
+## Tool Research
+
+Research required capabilities before tool names. For each candidate, verify invocation interface, granularity, source of truth, state readability, editability, reproducibility, batch behavior, preview, evaluation support, human round-trip, license, OS/hardware/network constraints, and recovery. Record version and verification date because these claims change.
+
 ## Minimum Evidence
 
 For a reusable production rule, prefer at least two independent supporting sources or one strong primary source plus a successful transfer test. Otherwise retain the rule as a hypothesis.

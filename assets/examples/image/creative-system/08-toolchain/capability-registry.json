@@ -1,0 +1,128 @@
+{
+  "schema_version": "0.3",
+  "required_capabilities": [
+    "parameterized-layout-authoring",
+    "deterministic-browser-render",
+    "thumbnail-generation"
+  ],
+  "tools": [
+    {
+      "id": "agent-html-css",
+      "name": "Agent-authored HTML/CSS",
+      "version": "web-standards",
+      "verified_at": "2026-07-16",
+      "interfaces": [
+        "filesystem"
+      ],
+      "modalities": [
+        "image",
+        "document-layout"
+      ],
+      "operation_granularity": [
+        "element",
+        "style-rule",
+        "canvas"
+      ],
+      "source_of_truth": "HTML/CSS file",
+      "state_readable": true,
+      "partial_editable": true,
+      "reproducibility": "high when fonts and browser runtime are fixed",
+      "parameterization": "CSS variables, dimensions, text, and DOM structure",
+      "batch_support": true,
+      "preview": "browser page",
+      "evaluation_support": "DOM inspection and rendered screenshot",
+      "human_round_trip": "source file can be reviewed and edited directly",
+      "constraints": [
+        "Not suitable for photorealistic raster synthesis.",
+        "Font and browser differences can alter rendering."
+      ],
+      "license": "Project-owned source using web standards",
+      "failure_recovery": "Patch isolated DOM/CSS regions and rerender."
+    },
+    {
+      "id": "playwright-cli",
+      "name": "Playwright CLI",
+      "version": "1.49.1",
+      "verified_at": "2026-07-16",
+      "interfaces": [
+        "CLI"
+      ],
+      "modalities": [
+        "web",
+        "image"
+      ],
+      "operation_granularity": [
+        "page",
+        "viewport",
+        "screenshot"
+      ],
+      "source_of_truth": "HTML/CSS file loaded by a browser",
+      "state_readable": true,
+      "partial_editable": false,
+      "reproducibility": "high with fixed browser and viewport",
+      "parameterization": "viewport size, URL, output path",
+      "batch_support": true,
+      "preview": "PNG screenshot",
+      "evaluation_support": "pixel render and browser inspection",
+      "human_round_trip": "human reviews the same screenshot artifact",
+      "constraints": [
+        "Requires a compatible installed browser runtime."
+      ],
+      "license": "Apache-2.0 project; verify installed distribution",
+      "failure_recovery": "Rerun after correcting source, path, browser, or viewport."
+    },
+    {
+      "id": "sips-cli",
+      "name": "macOS SIPS",
+      "version": "316",
+      "verified_at": "2026-07-16",
+      "interfaces": [
+        "CLI"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "operation_granularity": [
+        "file"
+      ],
+      "source_of_truth": "Rendered PNG",
+      "state_readable": true,
+      "partial_editable": false,
+      "reproducibility": "high for deterministic resize",
+      "parameterization": "maximum pixel dimension and output path",
+      "batch_support": true,
+      "preview": "thumbnail PNG",
+      "evaluation_support": "delivery-size readability check",
+      "human_round_trip": "thumbnail can be inspected directly",
+      "constraints": [
+        "Available on macOS only."
+      ],
+      "license": "Bundled macOS utility",
+      "failure_recovery": "Use another image resize CLI when SIPS is unavailable."
+    }
+  ],
+  "assignments": [
+    {
+      "capability": "parameterized-layout-authoring",
+      "primary_tool": "agent-html-css",
+      "fallback": "human design editor"
+    },
+    {
+      "capability": "deterministic-browser-render",
+      "primary_tool": "playwright-cli",
+      "fallback": "browser screenshot tool"
+    },
+    {
+      "capability": "thumbnail-generation",
+      "primary_tool": "sips-cli",
+      "fallback": "cross-platform image resize CLI"
+    }
+  ],
+  "manual_fallbacks": [],
+  "unsupported_capabilities": [
+    "photorealistic-image-synthesis",
+    "audience-preference-testing",
+    "campaign-distribution"
+  ],
+  "last_verified_at": "2026-07-16"
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.3",
+  "graph_id": "execution-001",
+  "source_of_truth": "",
+  "nodes": [
+    {
+      "id": "node-001",
+      "capability": "",
+      "judgment_owner": "",
+      "executor": "",
+      "approval_owner": "none",
+      "state_owner": "",
+      "inputs": [],
+      "outputs": [],
+      "verifier": "",
+      "retry_policy": {
+        "maximum_attempts": 1,
+        "retry_when": []
+      },
+      "fallback": "",
+      "provenance": []
+    }
+  ],
+  "edges": [],
+  "iteration_policy": {
+    "maximum_rounds": 3,
+    "stop_condition": "all required verifiers pass"
+  },
+  "human_approval_gates": []
+}

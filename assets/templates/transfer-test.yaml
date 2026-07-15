@@ -1,4 +1,4 @@
-schema_version: "0.2"
+schema_version: "0.3"
 transfer_test:
   pattern_id: "pattern-001"
   source_domain: ""

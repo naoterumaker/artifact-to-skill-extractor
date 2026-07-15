@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.3",
+  "id": "select-poster-anchor-and-density",
+  "status": "experimental",
+  "intent": "Choose a composition system that makes the destination and travel promise legible without cloning the reference.",
+  "context": {
+    "eligible_when": [
+      "A licensed destination-poster reference and a different target destination are available.",
+      "The output will be evaluated at full and thumbnail sizes."
+    ],
+    "excluded_when": [
+      "The user explicitly requests and has rights for a close derivative.",
+      "The task is only image retouching or resizing."
+    ]
+  },
+  "preconditions": [
+    "Source rights and attribution requirements are recorded.",
+    "Source-specific details and candidate functional relations are separated.",
+    "Target destination, audience, delivery size, and travel action are known."
+  ],
+  "evidence_needed": [
+    "Source observation and analysis.",
+    "Target project doctrine and anti-goals.",
+    "Delivery-size and thumbnail readability requirements."
+  ],
+  "decision_rule": {
+    "when": [
+      "If immediate destination recognition and thumbnail clarity outrank cultural breadth, choose one dominant anchor with sparse supporting context.",
+      "If multiple associations are essential and quiet fields can stabilize them, use a controlled collage.",
+      "If either option resembles the source's distinctive arrangement, choose a different spatial system."
+    ],
+    "choose": "A composition brief defining anchor, context, directional cue, verbal hierarchy, density, and anti-clone transformations.",
+    "otherwise": "Request human selection between bounded composition alternatives."
+  },
+  "action": {
+    "operation": "Create and implement the selected composition as editable HTML/CSS.",
+    "output": "Poster source with explicit target dimensions and stable visual regions."
+  },
+  "parameters": [
+    {
+      "name": "anchor",
+      "valid_range": "one primary destination identity"
+    },
+    {
+      "name": "density",
+      "valid_range": "sparse or controlled-collage"
+    },
+    {
+      "name": "delivery_size",
+      "valid_range": "explicit width and height"
+    }
+  ],
+  "invariants": [
+    "One primary destination identity survives thumbnail reduction.",
+    "Travel access remains subordinate to destination desire.",
+    "Subject, composition, palette, typography, density, and directional mechanism remain materially independent from the reference."
+  ],
+  "verifier": {
+    "checks": [
+      "Render the exact target dimensions.",
+      "Inspect a thumbnail no wider than 240 pixels.",
+      "Compare source and output for retained functions and changed expression.",
+      "Check text contrast, clipping, and incoherent overlap."
+    ],
+    "pass_condition": "All render-integrity and anti-clone gates pass, critical readability is at least 60, and total score is at least 80."
+  },
+  "fallback": {
+    "when": [
+      "The anchor is ambiguous at thumbnail size.",
+      "The output remains too similar to the source.",
+      "Text or action collides with the image hierarchy."
+    ],
+    "action": "Return to composition selection, increase expressive distance, simplify context, and request human approval after three failed rounds."
+  },
+  "failure_modes": [
+    "Changing labels while preserving the source scene graph.",
+    "Using many equal destination motifs.",
+    "Approving code without inspecting the rendered pixels.",
+    "Making CTA copy too small or too dominant."
+  ],
+  "provenance": [
+    {
+      "source_id": "img-src-001",
+      "location": "observation.yaml and pattern.yaml",
+      "evidence_status": "candidate-from-single-positive-example"
+    },
+    {
+      "source_id": "image-eval-round-1",
+      "location": "evaluation-round-1.json",
+      "evidence_status": "observed-failure"
+    },
+    {
+      "source_id": "image-eval-round-2",
+      "location": "evaluation-round-2.json",
+      "evidence_status": "successful-forward-repair"
+    }
+  ],
+  "confidence": {
+    "level": "medium",
+    "basis": "One source, one failed draft, one successful repair, and explicit project doctrine.",
+    "counterevidence": [
+      "The source and output use different density systems, so density is conditional rather than invariant."
+    ],
+    "scope": "Auditable destination-poster experiments; not all visual design."
+  },
+  "agency": {
+    "judgment_owner": "model-with-project-doctrine",
+    "executor": "model-plus-cli-tools",
+    "approval_owner": "human"
+  }
+}

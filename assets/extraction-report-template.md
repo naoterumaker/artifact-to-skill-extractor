@@ -1,64 +1,78 @@
-# Artifact-To-Skill Extraction Report
+# Artifact-To-System Compilation Report
 
-## Request
+## Capability Contract
 
-- User goal:
-- Desired output:
-- Target future user:
-- Assumptions:
+- Desired capability:
+- Future user:
+- Execution environment:
+- Profile: `procedural | creative | hybrid`
+- Source of truth:
+- Required output and completion standard:
+- Authority and approval boundaries:
 
-## Source Inventory
+## Corpus And Evidence Ceiling
 
-| Source ID | Type | Location | Context | Reliability | Notes |
+| Source ID | Type | Location | Eligible Claims | Rights | Reliability | Limits |
+|---|---|---|---|---|---|---|
+
+- Strongest supported layer:
+- Explicitly unsupported claims:
+- Missing comparisons, revisions, failures, traces, explanations, or outcomes:
+
+## Native Observations
+
+| Observation ID | Source | Location/Region/Time | Observed Element | Production Function | Status |
 |---|---|---|---|---|---|
 
-## Functional Decomposition
+## Comparative Alignment
 
-| Element ID | Source | Surface | Function | Decision Rule | Inputs Needed | Constraints | Failure Modes |
-|---|---|---|---|---|---|---|---|
+| Case | Decision Opportunity | Context | Choice | Alternative | Outcome | Interpretation Status |
+|---|---|---|---|---|---|---|
 
-## Candidate Skill Units
+## Doctrine
 
-| Unit ID | Title | Problem Solved | Sources | Status | Reason |
+- Recovered creator doctrine status:
+- User-confirmed project doctrine:
+- Value conflicts and priority rules:
+- Counterevidence and scope:
+- Held-out prediction:
+
+## Grammar
+
+| Pattern | Function | Required Relations | Variables | Constraints | Evidence Status |
 |---|---|---|---|---|---|
 
-## Verified Units
+## Decision Units
 
-### `<unit-id>`: `<title>`
+| Unit ID | WHEN/IF Context | DO | VERIFY | ELSE | Provenance | Confidence |
+|---|---|---|---|---|---|---|
 
-- Problem solved:
-- Trigger language:
-- Non-triggers:
-- Required inputs:
-- Workflow:
-- Decision rules:
-- Boundaries:
-- Failure modes:
-- Rubric:
-- Resources needed:
+## Capabilities, Tools, And Agency
 
-## Rejected Or Demoted Units
+| Capability | Judgment Owner | Executor/Tool | State Owner | Verifier | Fallback | Status |
+|---|---|---|---|---|---|---|
 
-| Unit | Decision | Reason | Could Become |
-|---|---|---|---|
-
-## Proposed Skill Package
+## Compiled Package
 
 ```text
-skill-name/
-├── SKILL.md
-├── references/
-└── assets/
+system-name/
+├── doctrine/
+├── grammar/
+├── evidence/
+├── decision-units/
+├── toolchain/
+├── workflows/
+├── skills/
+└── evals/
 ```
 
-## Evaluation Plan
+Compile only the directories supported by the selected profile and evidence.
 
-- Should-trigger prompts:
-- Should-not-trigger prompts:
-- Boundary prompts:
-- Functional cases:
-- Regression tests:
+## Evaluation And Lifecycle
 
-## Open Questions
-
-- 
+- Frozen hard gates and score contract:
+- Trigger, non-trigger, boundary, functional, recovery tests:
+- Forward test:
+- Doctrine prediction or transfer test:
+- Failure routing and maximum rounds:
+- Lifecycle status and unresolved limits:

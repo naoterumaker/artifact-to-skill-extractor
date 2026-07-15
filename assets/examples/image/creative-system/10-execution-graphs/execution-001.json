@@ -1,0 +1,216 @@
+{
+  "schema_version": "0.3",
+  "graph_id": "destination-poster-forward-test",
+  "source_of_truth": "assets/examples/image/poster-round-2.html",
+  "nodes": [
+    {
+      "id": "observe",
+      "capability": "artifact-native-image-observation",
+      "judgment_owner": "model",
+      "executor": "model",
+      "approval_owner": "none",
+      "state_owner": "observation files",
+      "inputs": [
+        "licensed source image",
+        "rights manifest"
+      ],
+      "outputs": [
+        "observation.yaml",
+        "analysis.md"
+      ],
+      "verifier": "Observation and inference are separated and source details are locatable.",
+      "retry_policy": {
+        "maximum_attempts": 2,
+        "retry_when": [
+          "Required regions or source locations are missing."
+        ]
+      },
+      "fallback": "Request a clearer source or human description.",
+      "provenance": [
+        "source-manifest.yaml",
+        "references/representation-router.md"
+      ]
+    },
+    {
+      "id": "select-composition",
+      "capability": "parameterized-layout-authoring",
+      "judgment_owner": "model-with-project-doctrine",
+      "executor": "model",
+      "approval_owner": "human-when-gate-triggers",
+      "state_owner": "composition brief",
+      "inputs": [
+        "candidate grammar",
+        "project doctrine",
+        "target context"
+      ],
+      "outputs": [
+        "composition brief"
+      ],
+      "verifier": "Decision unit preconditions, invariants, and anti-clone transformations are explicit.",
+      "retry_policy": {
+        "maximum_attempts": 3,
+        "retry_when": [
+          "The composition fails a readability or anti-clone gate."
+        ]
+      },
+      "fallback": "Present bounded alternatives for human approval.",
+      "provenance": [
+        "07-decision-units/decision-001.json",
+        "05-doctrine/doctrine-hypothesis.md",
+        "06-grammar/grammar-pattern.md"
+      ]
+    },
+    {
+      "id": "author-source",
+      "capability": "parameterized-layout-authoring",
+      "judgment_owner": "model",
+      "executor": "filesystem-editor",
+      "approval_owner": "none",
+      "state_owner": "poster HTML/CSS",
+      "tool_id": "agent-html-css",
+      "inputs": [
+        "composition brief"
+      ],
+      "outputs": [
+        "poster HTML/CSS"
+      ],
+      "verifier": "Canvas dimensions and stable regions are explicit in source.",
+      "retry_policy": {
+        "maximum_attempts": 3,
+        "retry_when": [
+          "Source structure cannot satisfy the selected composition brief."
+        ]
+      },
+      "fallback": "Patch the smallest DOM or CSS region.",
+      "provenance": [
+        "composition brief",
+        "08-toolchain/capability-registry.json"
+      ]
+    },
+    {
+      "id": "render-full",
+      "capability": "deterministic-browser-render",
+      "judgment_owner": "deterministic-rule",
+      "executor": "CLI",
+      "approval_owner": "none",
+      "state_owner": "full-size PNG",
+      "tool_id": "playwright-cli",
+      "inputs": [
+        "poster HTML/CSS"
+      ],
+      "outputs": [
+        "800x1000 PNG"
+      ],
+      "verifier": "PNG exists, dimensions match, and render is nonblank.",
+      "retry_policy": {
+        "maximum_attempts": 2,
+        "retry_when": [
+          "The renderer fails or dimensions are incorrect."
+        ]
+      },
+      "fallback": "Check browser runtime, local URL, viewport, and source errors.",
+      "provenance": [
+        "08-toolchain/capability-registry.json#playwright-cli"
+      ]
+    },
+    {
+      "id": "render-thumbnail",
+      "capability": "thumbnail-generation",
+      "judgment_owner": "deterministic-rule",
+      "executor": "CLI",
+      "approval_owner": "none",
+      "state_owner": "thumbnail PNG",
+      "tool_id": "sips-cli",
+      "inputs": [
+        "800x1000 PNG"
+      ],
+      "outputs": [
+        "192x240 PNG"
+      ],
+      "verifier": "Thumbnail exists and has the expected dimensions.",
+      "retry_policy": {
+        "maximum_attempts": 2,
+        "retry_when": [
+          "The thumbnail is missing or has incorrect dimensions."
+        ]
+      },
+      "fallback": "Use a cross-platform image resize CLI.",
+      "provenance": [
+        "08-toolchain/capability-registry.json#sips-cli"
+      ]
+    },
+    {
+      "id": "evaluate",
+      "capability": "visual-and-doctrine-evaluation",
+      "judgment_owner": "model-and-human",
+      "executor": "model",
+      "approval_owner": "human-for-publication",
+      "state_owner": "evaluation record",
+      "inputs": [
+        "source",
+        "full render",
+        "thumbnail",
+        "project doctrine",
+        "frozen rubric"
+      ],
+      "outputs": [
+        "evaluation result"
+      ],
+      "verifier": "All hard gates and score thresholds are calculated.",
+      "retry_policy": {
+        "maximum_attempts": 1,
+        "retry_when": []
+      },
+      "fallback": "Route each defect to the lowest responsible layer.",
+      "provenance": [
+        "evaluation-rubric.json",
+        "evaluation-round-1.json",
+        "evaluation-round-2.json"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "observe",
+      "to": "select-composition",
+      "type": "artifact"
+    },
+    {
+      "from": "select-composition",
+      "to": "author-source",
+      "type": "approved-brief"
+    },
+    {
+      "from": "author-source",
+      "to": "render-full",
+      "type": "source"
+    },
+    {
+      "from": "render-full",
+      "to": "render-thumbnail",
+      "type": "render"
+    },
+    {
+      "from": "render-thumbnail",
+      "to": "evaluate",
+      "type": "evaluation-input"
+    },
+    {
+      "from": "evaluate",
+      "to": "select-composition",
+      "type": "iteration",
+      "maximum_rounds": 3,
+      "stop_condition": "all hard gates pass, critical dimensions are at least 60, and total score is at least 80"
+    }
+  ],
+  "iteration_policy": {
+    "maximum_rounds": 3,
+    "stop_condition": "all required verifiers pass"
+  },
+  "human_approval_gates": [
+    {
+      "after": "select-composition",
+      "required_when": "Project doctrine is incomplete, source resemblance is disputed, or irreversible publication is requested."
+    }
+  ]
+}

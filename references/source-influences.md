@@ -4,6 +4,8 @@ This skill borrows design patterns from the following reviewed projects and adap
 
 These sources are design influences, not proof that any extracted rule will improve a user's output. The harness still requires source tracing, forward tests, and scoped lifecycle decisions.
 
+The v0.3 production-system model, separation of creator and project doctrine, role-specific representations, agency contract, and capability-first tool planning were adopted from explicit owner review of this repository. They are user-confirmed compiler design decisions, not claims attributed to the external projects below.
+
 ## Programmatic Skill Induction And Workflow Memory
 
 Sources:

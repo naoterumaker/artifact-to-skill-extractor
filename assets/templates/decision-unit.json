@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.3",
+  "id": "decision-001",
+  "status": "hypothesis",
+  "intent": "",
+  "context": {
+    "eligible_when": [],
+    "excluded_when": []
+  },
+  "preconditions": [],
+  "evidence_needed": [],
+  "decision_rule": {
+    "when": [],
+    "choose": "",
+    "otherwise": ""
+  },
+  "action": {
+    "operation": "",
+    "output": ""
+  },
+  "parameters": [],
+  "invariants": [],
+  "verifier": {
+    "checks": [],
+    "pass_condition": ""
+  },
+  "fallback": {
+    "when": [],
+    "action": "request-human-review"
+  },
+  "failure_modes": [],
+  "provenance": [],
+  "confidence": {
+    "level": "low",
+    "basis": "template",
+    "counterevidence": [],
+    "scope": ""
+  },
+  "agency": {
+    "judgment_owner": "model",
+    "executor": "model",
+    "approval_owner": "human"
+  }
+}

@@ -1,5 +1,25 @@
 # Method
 
+## Project Doctrine
+
+These are rules for this generated system, not recovered claims about the reference creator:
+
+- Preserve production function while changing source expression materially.
+- Preserve thumbnail readability when it conflicts with decorative density.
+- Prefer an inspectable, editable source of truth over an opaque output when the task needs iteration.
+
+## Composition Decision
+
+```text
+WHEN choosing anchor and density
+IF immediate recognition outranks cultural breadth
+DO use one dominant anchor with sparse supporting context
+VERIFY destination identity survives at 240 px or less
+ELSE use a controlled collage only when quiet fields preserve hierarchy
+```
+
+If either option remains too close to the reference arrangement, select a different spatial system or escalate bounded alternatives for human review.
+
 ## Design Contract
 
 Choose one item from each function, then make their relationships explicit:

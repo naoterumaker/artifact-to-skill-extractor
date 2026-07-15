@@ -1,4 +1,4 @@
-schema_version: "0.2"
+schema_version: "0.3"
 failure_id: "fail-001"
 occurred_at: null
 skill_version: ""
@@ -8,7 +8,7 @@ expected: ""
 observed: ""
 rubric_dimension: ""
 severity: "major"
-root_layer: "output"
+root_layer: "output" # output | decision-unit | grammar | doctrine | tool | execution-graph | skill | reference | asset | pattern | evidence | rubric
 repair_applied: ""
 repair_result: "unchanged"
 privacy: "private"

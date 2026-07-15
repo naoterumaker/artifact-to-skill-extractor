@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.3",
+  "id": "frame-x-article-claim-by-evidence",
+  "status": "experimental",
+  "intent": "Choose claim wording that creates a strong mechanism article without overstating the source evidence.",
+  "context": {
+    "eligible_when": [
+      "A permitted source or evidence set is being transformed into an original X Article."
+    ],
+    "excluded_when": [
+      "The task is pure fiction or a verbatim quotation request."
+    ]
+  },
+  "preconditions": [
+    "Source rights and attribution requirements are known.",
+    "Important source claims have evidence labels.",
+    "Target reader, state change, and CTA are defined."
+  ],
+  "evidence_needed": [
+    "Observed source facts and locations.",
+    "Attributed but unverified source claims.",
+    "Independent evidence for any causal or quantitative statement.",
+    "Project doctrine and platform constraints."
+  ],
+  "decision_rule": {
+    "when": [
+      "If a claim is directly observed and adequately sourced, state it within its measured scope.",
+      "If a claim belongs to the source but is not independently verified, attribute or qualify it.",
+      "If a claim is inferred, label it as interpretation.",
+      "If a claim exists only to intensify the hook, omit it."
+    ],
+    "choose": "The strongest wording whose certainty does not exceed the evidence.",
+    "otherwise": "Use a non-quantitative mechanism hook or request stronger evidence."
+  },
+  "action": {
+    "operation": "Draft the title, opening, body claims, qualifications, and evidence ledger.",
+    "output": "Original X Article with scoped claims, provenance, and proportionate CTA."
+  },
+  "parameters": [
+    {
+      "name": "certainty",
+      "valid_range": "observed, attributed, inferred, hypothesis"
+    },
+    {
+      "name": "body_shape",
+      "valid_range": "principles, stages, mistakes, decision-rules"
+    }
+  ],
+  "invariants": [
+    "Claim certainty never exceeds evidence strength.",
+    "The replacement mechanism answers the opening pain.",
+    "Source wording and distinctive examples are not copied.",
+    "The CTA preserves provenance."
+  ],
+  "verifier": {
+    "checks": [
+      "Trace every material number and causal claim.",
+      "Confirm each body section performs a distinct reasoning role.",
+      "Run anti-clone and mobile readability checks.",
+      "Confirm the score is not presented as live X performance."
+    ],
+    "pass_condition": "All hard gates pass, claim/evidence is at least 60, and total score is at least 80."
+  },
+  "fallback": {
+    "when": [
+      "Evidence is missing, contradictory, or too weak for the planned hook."
+    ],
+    "action": "Narrow the claim, attribute it, replace the hook, or ask for evidence."
+  },
+  "failure_modes": [
+    "Invented numerical uplift.",
+    "Treating a source claim as independently established fact.",
+    "Using platform-performance speculation as causal evidence.",
+    "Copying a distinctive title formula or cadence."
+  ],
+  "provenance": [
+    {
+      "source_id": "x-src-001",
+      "location": "move-map.md",
+      "evidence_status": "single-positive-example"
+    },
+    {
+      "source_id": "x-eval-round-1",
+      "location": "evaluation-round-1.json",
+      "evidence_status": "observed-failure"
+    },
+    {
+      "source_id": "x-eval-round-2",
+      "location": "evaluation-round-2.json",
+      "evidence_status": "successful-forward-repair"
+    }
+  ],
+  "confidence": {
+    "level": "medium",
+    "basis": "One source artifact, one failed draft, one repaired output, and explicit project doctrine.",
+    "counterevidence": [],
+    "scope": "Source-grounded Japanese X mechanism articles."
+  },
+  "agency": {
+    "judgment_owner": "model-with-evidence-ledger",
+    "executor": "model",
+    "approval_owner": "human-for-publication"
+  }
+}

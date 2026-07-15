@@ -13,8 +13,8 @@ Experimental. The method is derived from one positive X Article example and a fo
 
 1. Confirm the target reader, desired state change, source rights, and CTA.
 2. Extract source claims, evidence, uncertainty, and provenance before drafting.
-3. Choose one reader pain and one assumption to challenge.
-4. Build a distinct replacement mechanism using `references/method.md`.
+3. Apply the project doctrine and claim-selection rule in `references/method.md`.
+4. Choose one reader pain, one assumption to challenge, and a distinct replacement mechanism.
 5. Draft a compact title, opening, body map, mechanism sections, objection handling, and attributed close.
 6. Check every number and causal claim against the source ledger.
 7. Run anti-clone and X-readability checks before delivery.

@@ -13,8 +13,8 @@ Experimental. The bundled method comes from one public-domain poster plus one fo
 
 1. Record only observable regions, entities, relations, hierarchy, typography, palette, and rights.
 2. Write interpretations separately and label confidence.
-3. Derive a pattern of invariants, variables, constraints, and anti-clone rules.
-4. Choose a new destination promise, symbolic anchor, directional device, and action.
+3. Apply the project doctrine and composition decision in `references/method.md`.
+4. Derive grammar, variables, constraints, and anti-clone rules, then choose a new destination promise, anchor, directional device, and action.
 5. Change at least subject, palette, time, geometry, text alignment, and CTA mechanism.
 6. Produce a new poster using `references/method.md`.
 7. Render at target size and inspect full scale plus thumbnail scale for collision, contrast, hierarchy, and source resemblance.

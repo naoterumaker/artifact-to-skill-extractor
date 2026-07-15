@@ -16,6 +16,23 @@ skill-name/
 
 Use `references/` for detail that informs reasoning. Use `assets/` for templates that are copied or adapted into final outputs.
 
+For a creative or hybrid production system, the generated package may use:
+
+```text
+system-name/
+├── skills/
+│   └── system-skill/SKILL.md
+├── doctrine/
+├── grammar/
+├── evidence/
+├── decision-units/
+├── toolchain/
+├── workflows/
+└── evals/
+```
+
+Only the installable skill folder must follow the standard skill anatomy. The broader production system may own additional top-level modules and mutable evidence outside that folder.
+
 ## SKILL.md Rules
 
 ### Frontmatter
@@ -63,6 +80,11 @@ Keep details under progressive disclosure. Put large tables, schemas, and varian
 | Copyable output templates | `assets/` |
 | Deterministic parsers or converters | `scripts/` |
 | Example source artifacts | `assets/examples/` only if safe and allowed |
+| Doctrine, value priorities, anti-goals | production-system `doctrine/` or skill `references/` |
+| Grammar and component relations | production-system `grammar/` or skill `references/` |
+| Executable decision contracts | `decision-units/` or validated skill assets/references |
+| Tool capabilities and assignments | `toolchain/` |
+| Execution DAG and adapters | `workflows/` and `scripts/` |
 
 ## Skill Unit Template
 

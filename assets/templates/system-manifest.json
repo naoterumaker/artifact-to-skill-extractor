@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.3",
+  "project_id": "replace-me",
+  "profile": "procedural",
+  "requires_doctrine": false,
+  "requires_grammar": false,
+  "requires_toolchain": false,
+  "target_system": {
+    "capability": "",
+    "future_user": "",
+    "execution_environment": "",
+    "source_of_truth": "",
+    "distribution_context": ""
+  },
+  "compilation_targets": [
+    "skill"
+  ],
+  "known_limits": []
+}

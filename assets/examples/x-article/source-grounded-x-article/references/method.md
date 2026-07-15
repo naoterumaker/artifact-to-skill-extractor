@@ -1,5 +1,24 @@
 # Method
 
+## Project Doctrine
+
+These are rules for this generated system, not recovered claims about the source creator:
+
+- Preserve evidence integrity when it conflicts with a more spectacular hook.
+- Preserve attribution and reader autonomy when they conflict with appearing wholly original.
+- Explain the mechanism rather than repeating a promise.
+- Never present a pre-publication quality score as live X performance.
+
+## Claim Decision
+
+```text
+WHEN a title or body claim is selected
+IF the claim is observed and adequately sourced
+DO state it within that evidence scope
+VERIFY every material number and causal statement
+ELSE attribute, qualify, omit, or request stronger evidence
+```
+
 ## Functional Sequence
 
 Use this as a relationship map, not a fixed wording template:
@@ -8,7 +27,7 @@ Use this as a relationship map, not a fixed wording template:
 specific reader pain
   -> challenge one default assumption
   -> introduce a source-grounded replacement mechanism
-  -> preview 2-5 reasoning units
+  -> preview distinct reasoning units
   -> explain mechanism and constraints
   -> resolve the main objection
   -> attribute evidence and offer one next action

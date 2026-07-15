@@ -16,8 +16,11 @@ Skill status reflects evidence, not enthusiasm.
 Require:
 
 - structural validation passes
+- selected profile's complete system-IR validation passes
 - trigger, near-miss, boundary, and functional fixtures pass
 - at least three forward cases pass the frozen rubric
+- recovered doctrine passes a preregistered held-out prediction when doctrine is claimed
+- required tool capabilities have current assignments or concrete manual fallbacks
 - any cross-domain claim passes `transfer-protocol.md`
 - no unresolved critical rights, safety, or privacy failure
 - owner, version, validation date, scope, and known limitations are recorded
@@ -51,7 +54,7 @@ Keep mutable lifecycle metadata in a dedicated status file or skill registry, no
 
 ```yaml
 skill: skill-name
-version: 0.2.0
+version: 0.3.0
 status: experimental
 owner: ""
 last_validated: ""

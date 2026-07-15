@@ -1,5 +1,5 @@
 skill: artifact-to-skill-extractor
-version: 0.2.0
+version: 0.3.0
 status: experimental
 owner: naoterumaker
 last_validated: "2026-07-16"
@@ -7,13 +7,23 @@ tested_with:
   - codex
 validated_cases:
   - id: x-article-forward-test
+    profile: creative
     result: pass
     score: 87.9
+    system_ir: complete
   - id: image-forward-test
+    profile: hybrid
     result: pass
     score: 88.2
+    system_ir: complete
+  - id: self-extraction-structural-audit
+    profile: procedural
+    result: diagnostic-pass
+    score: 88.2
+    note: "Retrospective and not independent promotion evidence."
 known_limits:
   - "Only one forward case has been run for each tested modality."
-  - "Video, research, process-trace, tool/API, and live platform-outcome cases are not yet forward-tested."
+  - "Creator doctrine has not passed a preregistered held-out prediction test."
+  - "Video, audio, research, process-trace, code, tool/API, and live platform-outcome cases are not yet forward-tested."
   - "The bundled evaluations are not independent blinded reviews."
 successor: null

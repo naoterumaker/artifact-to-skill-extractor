@@ -2,7 +2,7 @@
   "should_trigger": [
     {
       "id": "should-trigger-001",
-      "prompt": "この実績のあるX記事から制作判断を抽出し、再利用できるCodexスキルにしてください。"
+      "prompt": "このX記事と改稿履歴から、文章文法と条件付き制作判断を抽出し、再利用できるCodexスキルにしてください。"
     },
     {
       "id": "should-trigger-002",
@@ -18,7 +18,7 @@
     },
     {
       "id": "should-trigger-005",
-      "prompt": "このリサーチ方法を、入力と停止条件のあるエージェントスキルとして実装したい。"
+      "prompt": "この作品群から制作思想、文法、アンチゴールを仮説化し、実行可能な制作システムへコンパイルして。"
     }
   ],
   "should_not_trigger": [
@@ -60,15 +60,15 @@
   "functional": [
     {
       "id": "functional-001",
-      "prompt": "文章素材をmove mapで観察し、invariantsとvariablesを分け、別テーマの出力で評価する。"
+      "prompt": "文章群をmove mapと比較表で観察し、作者思想とプロジェクト憲法を分け、decision unitへコンパイルして別テーマで評価する。"
     },
     {
       "id": "functional-002",
-      "prompt": "画像素材を観察YAMLと意味分析Markdownに分け、別構図をレンダーして評価する。"
+      "prompt": "画像を観察YAMLと意味分析Markdownに分け、文法と選択ルールへ抽象化し、必要能力とツールを割り当てて別構図をレンダーする。"
     },
     {
       "id": "functional-003",
-      "prompt": "初稿の失敗を最低責任層へ戻し、最大3回で合否と未解決事項を出す。"
+      "prompt": "WHEN/IF/DO/VERIFY/ELSEの判断単位と実行グラフを検証し、初稿の失敗を最低責任層へ戻して最大3回で止める。"
     }
   ]
 }

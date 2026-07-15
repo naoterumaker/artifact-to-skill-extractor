@@ -47,37 +47,30 @@ Use one row per meaningful element.
 
 For non-text artifacts, replace `surface` and `sequence_position` with artifact-native fields such as region, timeline, spatial relation, state, or transition. Preserve the same functional questions without forcing the same data shape.
 
-## Candidate Skill Unit
+## Production-System Intermediate Representation
 
-```yaml
-id: unit-001
-title: concise production capability
-source_elements: [el-001, el-004]
-problem_solved: what recurring situation this handles
-trigger_language:
-  - user phrasing that should activate the skill
-non_triggers:
-  - similar phrasing that should not activate it
-inputs:
-  required: []
-  optional: []
-workflow:
-  - step: action
-    completion_standard: how to know this is done
-decision_rules:
-  - if/when rule
-boundaries:
-  - when not to use
-failure_modes:
-  - likely error and prevention
-rubric:
-  - quality criterion
-resources_needed:
-  scripts: []
-  references: []
-  assets: []
-status: experimental | active | narrowed | rejected
+Do not jump directly from extracted elements to a monolithic skill template. Route supported knowledge into separate roles:
+
+| Role | Minimum content | Preferred representation |
+|---|---|---|
+| doctrine | conflict rule, support, counterevidence, scope, confidence, held-out prediction | evidence-backed Markdown |
+| grammar | function, elements, relations, variables, constraints, selection rules, anti-patterns | Markdown pattern plus typed fields when needed |
+| executable decision | context, evidence, rule, action, verifier, fallback, provenance, agency | `assets/templates/decision-unit.json` |
+| capabilities | required operations, candidate tools, assignments, unsupported capabilities | `assets/templates/tool-capability-registry.json` |
+| execution | nodes, owners, state, handoffs, retries, verifiers, fallbacks | `assets/templates/execution-graph.json` |
+| activation | trigger, non-trigger, short workflow, routing, boundaries | lean `SKILL.md` |
+
+A function label such as `build trust` is only an index. It becomes executable when compiled into:
+
+```text
+WHEN the context is eligible
+IF required evidence and preconditions hold
+DO a bounded operation
+VERIFY observable success criteria
+ELSE repair, route, or escalate
 ```
+
+Every decision unit retains source locations, evidence status, scope, counterevidence, confidence, and agency. Unsupported hypotheses must not become unconditional skill instructions.
 
 ## Verification Record
 
@@ -106,6 +99,8 @@ boundary_gate:
 decision: package | merge | demote | reject
 ```
 
+For creative doctrine, add a held-out prediction gate. For hybrid systems, add tool-capability coverage and execution-graph integrity gates. A structurally valid package may remain `experimental` when evidence or independent evaluation is weak.
+
 ## Function Labels
 
 Prefer precise function labels over medium-specific labels.
@@ -124,10 +119,10 @@ Prefer precise function labels over medium-specific labels.
 
 When time is short, capture only:
 
-1. Source inventory
-2. Top 5 reusable functions
-3. Candidate skill units
-4. Verification decisions
-5. Proposed skill package structure
+1. Source inventory and evidence ceiling
+2. Top 5 production functions
+3. Supported doctrine, grammar, and decision candidates
+4. Capability gaps and agency boundaries
+5. Verification decisions and proposed package profile
 
 The report must also identify which details remain source-specific and which anti-clone rules prevent direct surface reproduction.

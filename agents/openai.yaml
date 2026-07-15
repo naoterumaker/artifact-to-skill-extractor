@@ -1,4 +1,4 @@
 interface:
   display_name: "Artifact to Skill Extractor"
-  short_description: "Build and validate agent skills from real evidence."
-  default_prompt: "Use artifact-to-skill-extractor to interview me, inspect supplied artifacts, propose missing research axes, abstract reusable production logic, build the skill, generate a realistic test output, and improve it through the Evaluator loop."
+  short_description: "Compile evidence into executable production systems"
+  default_prompt: "Use $artifact-to-skill-extractor to inspect my evidence, compile a scoped production system, generate a new concrete output, and evaluate it."

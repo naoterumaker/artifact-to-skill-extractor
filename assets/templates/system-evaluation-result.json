@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.3",
+  "rubric_id": "system-rubric-001",
+  "round": 1,
+  "hard_gates": {
+    "rights-safety-and-required-output": {
+      "status": "pass",
+      "evidence": ""
+    },
+    "evidence-integrity": {
+      "status": "pass",
+      "evidence": ""
+    },
+    "execution-integrity": {
+      "status": "pass",
+      "evidence": ""
+    }
+  },
+  "dimension_scores": {
+    "intent-and-doctrine-alignment": {
+      "score": 0,
+      "evidence": ""
+    },
+    "grammar-and-medium-fit": {
+      "score": 0,
+      "evidence": ""
+    },
+    "decision-executability": {
+      "score": 0,
+      "evidence": ""
+    },
+    "toolchain-and-agency-fit": {
+      "score": 0,
+      "evidence": ""
+    },
+    "output-quality-and-context-fit": {
+      "score": 0,
+      "evidence": ""
+    }
+  },
+  "doctrine_prediction": {
+    "hypothesis_id": null,
+    "held_out_context": null,
+    "predicted_choice_recorded_at": null,
+    "predicted_choice": null,
+    "revealed_choice": null,
+    "result": "not-applicable"
+  },
+  "issues": [
+    {
+      "severity": "major",
+      "artifact_location": "",
+      "criterion": "",
+      "evidence": "",
+      "lowest_responsible_layer": "",
+      "required_repair": "",
+      "expected_effect": ""
+    }
+  ],
+  "unresolved_assumptions": []
+}

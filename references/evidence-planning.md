@@ -29,6 +29,22 @@ stop_condition: when collection ends
 | Implementation | maintained repository, tests, scripts | identify executable patterns |
 | Expert confirmation | interview or user correction | validate inferred intent and tacit rules |
 
+## Maximum Claim By Evidence
+
+Do not let the desired output outrun the corpus.
+
+| Available evidence | Maximum defensible claim |
+|---|---|
+| Single finished artifact | observation, functional inference, candidate grammar |
+| Multiple comparable artifacts | recurring pattern and conditional variation |
+| Success plus failure cases | boundary and validity-condition hypothesis |
+| Revision or accepted/rejected history | decision and value-priority hypothesis |
+| Execution trace | actual procedure, branch, tool, and recovery evidence |
+| Creator explanation plus outcome | stronger intent and effectiveness evidence |
+| Longitudinal corpus plus held-out prediction | doctrine or signature candidate |
+
+If the requested creative-system layer lacks eligible evidence, emit an explicit `insufficient-evidence` record and continue with user-confirmed project doctrine where available.
+
 ## Source Manifest Requirements
 
 Track:
@@ -49,6 +65,9 @@ Do not copy a public artifact into the skill merely because it is accessible. St
 - Separate platform effects, account effects, timing, and production quality.
 - Record what could not be observed.
 - Use source popularity as discovery evidence, not truth.
+- Count only cases with a real opportunity to exhibit a feature when interpreting absence.
+- Preserve counterexamples and denominators for doctrine or signature claims.
+- Separate creator doctrine, project doctrine, platform constraints, and model preference.
 
 ## Security
 

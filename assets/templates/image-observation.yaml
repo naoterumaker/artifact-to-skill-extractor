@@ -1,4 +1,4 @@
-schema_version: "0.2"
+schema_version: "0.3"
 source_id: "src-001"
 artifact:
   path_or_url: ""

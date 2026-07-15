@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.3",
+  "project_id": "image-forward-test",
+  "profile": "hybrid",
+  "requires_doctrine": true,
+  "requires_grammar": true,
+  "requires_toolchain": true,
+  "target_system": {
+    "capability": "Create materially new destination posters from licensed references without copying source expression.",
+    "future_user": "Agent producing auditable campaign poster variants.",
+    "execution_environment": "Local macOS workspace with HTML/CSS, Playwright CLI, and SIPS.",
+    "source_of_truth": "Editable HTML/CSS poster file.",
+    "distribution_context": "Rendered campaign poster inspected at full and thumbnail sizes; audience delivery and campaign analytics remain external."
+  },
+  "compilation_targets": [
+    "skill",
+    "editable-poster-source",
+    "rendered-png",
+    "evaluation-record"
+  ],
+  "known_limits": [
+    "The source corpus contains one poster, so source-creator doctrine is not recoverable.",
+    "The project doctrine is user-confirmed rather than induced from the source creator.",
+    "Audience recognition and campaign performance remain untested."
+  ]
+}

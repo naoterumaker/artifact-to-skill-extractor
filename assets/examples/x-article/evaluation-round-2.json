@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "x-article-forward-test-rubric",
+  "round": 2,
+  "hard_gates": {
+    "required-output": {
+      "status": "pass",
+      "evidence": "A complete Japanese X Article, three operational sections, and repository CTA exist."
+    },
+    "rights-and-safety": {
+      "status": "pass",
+      "evidence": "The source is attributed through the fixture; no protected body expression is reproduced and all performance language is qualified."
+    },
+    "anti-clone": {
+      "status": "pass",
+      "evidence": "The output changes the topic, claims, mechanism details, section language, examples, and CTA."
+    }
+  },
+  "dimension_scores": {
+    "intent-alignment": {
+      "score": 88,
+      "evidence": "The article clearly changes the completion model from writing a skill file to running an evaluated production system."
+    },
+    "functional-structure": {
+      "score": 90,
+      "evidence": "Each section performs a distinct function: forward test, rubric freeze, and root-layer repair."
+    },
+    "claim-and-evidence": {
+      "score": 86,
+      "evidence": "The 80/60/three-round contract traces to the repository implementation and is explicitly framed as an internal standard, not an outcome guarantee."
+    },
+    "x-readability-and-impression-proxy": {
+      "score": 84,
+      "evidence": "The opening is specific, paragraphs are mobile-scannable, headings carry information, and the CTA is low-friction. Live performance remains untested."
+    },
+    "originality-and-anti-clone": {
+      "score": 92,
+      "evidence": "Only the functional relation is transferred; no distinctive source phrase, numerical spectacle, template names, or examples remain."
+    }
+  },
+  "issues": [],
+  "unresolved_assumptions": [
+    "The pre-publication score is a quality proxy and cannot establish impression performance.",
+    "One source example is insufficient to promote the generated skill beyond experimental status."
+  ]
+}

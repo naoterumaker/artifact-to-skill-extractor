@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "image-forward-test-rubric",
+  "frozen_before_generation": true,
+  "pass_contract": {
+    "total_score_minimum": 80,
+    "critical_dimension_minimum": 60,
+    "all_hard_gates_required": true,
+    "maximum_rounds": 3
+  },
+  "hard_gates": [
+    {
+      "id": "required-output",
+      "question": "Do editable poster source and a rendered 800x1000 image exist?"
+    },
+    {
+      "id": "rights-and-safety",
+      "question": "Are source rights and attribution recorded?"
+    },
+    {
+      "id": "anti-clone",
+      "question": "Are subject, composition, palette, time, direction, typography, and CTA materially different?"
+    },
+    {
+      "id": "render-integrity",
+      "question": "Is the final render nonblank, unclipped, and free of incoherent overlap?"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "intent-alignment",
+      "layer": "universal",
+      "weight": 20,
+      "critical": true,
+      "question": "Does the poster communicate Hokkaido, first light, and rail travel as one promise?"
+    },
+    {
+      "id": "functional-composition",
+      "layer": "image-archetype",
+      "weight": 25,
+      "critical": true,
+      "question": "Do anchor, context, direction, promise, and action cooperate rather than compete?"
+    },
+    {
+      "id": "visual-hierarchy-and-readability",
+      "layer": "image-quality",
+      "weight": 20,
+      "critical": true,
+      "question": "Are the destination, image anchor, promise, and action legible at full and thumbnail sizes?"
+    },
+    {
+      "id": "delivery-context-fit",
+      "layer": "context-objective",
+      "weight": 15,
+      "critical": false,
+      "question": "Does the 4:5 poster work as a contemporary travel promotion surface?"
+    },
+    {
+      "id": "originality-and-anti-clone",
+      "layer": "project",
+      "weight": 20,
+      "critical": true,
+      "question": "Is function transferred while visual expression remains materially independent from the source?"
+    }
+  ]
+}

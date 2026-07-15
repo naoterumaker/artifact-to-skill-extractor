@@ -1,0 +1,45 @@
+schema_version: "0.2"
+project_id: "x-article-forward-test"
+retrieved_at: "2026-07-16T00:00:00+09:00"
+sources:
+  - source_id: "x-src-001"
+    title: "ネタ収集ゼロ、執筆5分で数万インプレッションを叩き出す仕組みの話"
+    source_type: "finished-artifact"
+    artifact_type: "x-article"
+    location: "https://x.com/HSP_AI_CR202511/status/2036687692592017494"
+    creator: "とも｜AI情報の編集室 (@HSP_AI_CR202511)"
+    published_at: "2026-03-25T06:12:40Z"
+    observed_outcome:
+      views: 46722
+      likes: 26
+      bookmarks: 83
+      quotes: 3
+      captured_at: "2026-07-16"
+      caveat: "Volatile public metrics returned by a third-party X metadata endpoint; not causal evidence for any one writing move."
+    reliability: "primary-artifact-with-volatile-metadata"
+    evidence_strength: "single-positive-example"
+    rights:
+      license: "copyrighted; no reuse license observed"
+      permission: "analysis only"
+      quotation_limit: "No body text is redistributed in this fixture."
+      redistribution_allowed: false
+    claims_requiring_independent_verification:
+      - "The article's claims about X algorithm preference."
+      - "The attributed performance and five-minute production claims."
+    notes: "The repository stores a paraphrased move map, not a transcript or full article copy."
+  - source_id: "x-test-src-001"
+    title: "Artifact To Skill Extractor v0.2 repository"
+    source_type: "owned-reference"
+    artifact_type: "repository"
+    location: "https://github.com/naoterumaker/artifact-to-skill-extractor"
+    creator: "naoterumaker"
+    published_at: null
+    observed_outcome: null
+    reliability: "primary-owned-source"
+    evidence_strength: "direct-implementation"
+    rights:
+      license: "repository license"
+      permission: "paraphrase and link"
+      quotation_limit: "Use only short technical phrases where needed."
+      redistribution_allowed: true
+    notes: "Used as the unseen-topic input for the forward-generated X article."

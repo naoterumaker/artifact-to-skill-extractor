@@ -1,0 +1,68 @@
+schema_version: "0.2"
+pattern_id: "x-source-led-mechanism-article"
+title: "Pain-to-mechanism X article"
+intent:
+  starting_state: "A reader has a recurring problem and a default explanation that keeps them stuck."
+  target_state: "The reader understands a credible alternative mechanism and can take a specific next step."
+  production_function: "Turn evidence-backed reframing into a readable, action-oriented long-form social article."
+source_elements:
+  - "x-src-001:opening"
+  - "x-src-001:three-principle-body"
+  - "x-src-001:attribution-close"
+evidence_status: "candidate-from-single-positive-example"
+invariants:
+  - "Qualify the reader with a specific active pain."
+  - "Challenge one causal assumption, then supply a replacement mechanism."
+  - "Preview a compact structure before the main explanation."
+  - "Give each section a distinct reasoning job."
+  - "Resolve the main objection before asking for action."
+  - "Close with provenance and one proportionate next step."
+variables:
+  opening_device:
+    - "pain mirror"
+    - "counterexample"
+    - "cost-of-status-quo"
+  proof_type:
+    - "implementation detail"
+    - "attributed case"
+    - "measured result"
+    - "before/after comparison"
+  body_shape:
+    - "principles"
+    - "mistakes"
+    - "stages"
+    - "decision rules"
+  call_to_action:
+    - "read source"
+    - "inspect repository"
+    - "run checklist"
+    - "try one step"
+constraints:
+  - "The replacement mechanism must actually answer the opening pain."
+  - "Quantitative claims require a source and must not imply unsupported causality."
+  - "The body must add mechanism detail rather than repeat the hook."
+  - "The CTA must be achievable without an unexplained leap."
+selection_rules:
+  - "Use principles when teaching durable relationships."
+  - "Use stages when order and handoffs matter."
+  - "Use mistakes when the audience already attempts the task."
+  - "Use decision rules when different contexts require different actions."
+anti_patterns:
+  - "Generic pain that could address any audience."
+  - "Numbers used as spectacle without provenance."
+  - "Three headings that restate the same idea."
+  - "A sales CTA unrelated to the mechanism."
+anti_clone:
+  - "Do not reuse source wording, title formula, exact numerical claims, or named template set."
+  - "The test output must use a different topic, evidence base, examples, and CTA."
+transfer_tests:
+  - target_domain: "evaluation-driven AI skill construction"
+    unseen_input: "artifact-to-skill-extractor v0.2 repository"
+    expected_preservation: "pain -> assumption challenge -> mechanism -> principles -> next action"
+    expected_change: "topic, claims, evidence, examples, section language, and CTA"
+promotion:
+  status: "experimental"
+  evidence_required:
+    - "Additional successful and unsuccessful X Articles."
+    - "Post-publication analytics for generated outputs."
+    - "A transfer test outside AI tooling."

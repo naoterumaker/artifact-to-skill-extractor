@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "x-article-forward-test-rubric",
+  "round": 1,
+  "hard_gates": {
+    "required-output": {
+      "status": "pass",
+      "evidence": "A complete titled article with a repository CTA exists."
+    },
+    "rights-and-safety": {
+      "status": "pass",
+      "evidence": "No body wording or specific examples from the extraction article are reproduced."
+    },
+    "anti-clone": {
+      "status": "pass",
+      "evidence": "The topic, evidence base, and CTA differ from the source article."
+    }
+  },
+  "dimension_scores": {
+    "intent-alignment": {
+      "score": 78,
+      "evidence": "The article identifies evaluation as the missing capability but gives only a thin operational explanation."
+    },
+    "functional-structure": {
+      "score": 82,
+      "evidence": "Pain, reframing, three sections, and CTA are present; the third section collapses multiple repair decisions into one generic instruction."
+    },
+    "claim-and-evidence": {
+      "score": 55,
+      "evidence": "The unsupported statement that evaluation makes results three times better violates the evidence ladder."
+    },
+    "x-readability-and-impression-proxy": {
+      "score": 76,
+      "evidence": "The copy scans quickly, but the opening promise relies on an ungrounded number and the body lacks enough specificity to earn bookmarks."
+    },
+    "originality-and-anti-clone": {
+      "score": 86,
+      "evidence": "The article uses a different topic and evidence source while retaining only the broad functional progression."
+    }
+  },
+  "issues": [
+    {
+      "severity": "critical",
+      "location": "opening",
+      "criterion": "claim-and-evidence",
+      "evidence": "A three-times improvement is asserted without measurement or source support.",
+      "root_layer": "generated-skill/reference-knowledge",
+      "repair": "Add an explicit evidence ladder and ban invented quantitative uplift in hooks."
+    },
+    {
+      "severity": "major",
+      "location": "section 3",
+      "criterion": "functional-structure",
+      "evidence": "All failures are sent back to the skill, which would create rule bloat.",
+      "root_layer": "current-output",
+      "repair": "Explain repair routing across output, SKILL.md, references, patterns, and evidence."
+    }
+  ],
+  "unresolved_assumptions": [
+    "Live X impression performance is not available for this unpublished test output."
+  ]
+}

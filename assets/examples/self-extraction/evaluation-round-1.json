@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "self-extraction-audit-rubric",
+  "round": 1,
+  "hard_gates": {
+    "required-output": "pass",
+    "rights-and-safety": "pass",
+    "anti-clone": "pass"
+  },
+  "dimension_scores": {
+    "capability-contract-clarity": 88,
+    "evidence-architecture": 78,
+    "representation-and-abstraction": 80,
+    "execution-and-evaluation": 82,
+    "self-application-and-limits": 52
+  },
+  "issues": [
+    {
+      "severity": "critical",
+      "location": "cross-run operation",
+      "criterion": "self-application-and-limits",
+      "evidence": "The harness repaired one run but did not define transfer promotion, repeated-failure harvesting, lifecycle demotion, or large-corpus estimation.",
+      "root_layer": "reference-architecture",
+      "repair": "Add dedicated transfer, failure-harvest, lifecycle, and cost-aware references plus deterministic support."
+    }
+  ],
+  "unresolved_assumptions": [
+    "The audit is performed by the same implementing agent and is not independent."
+  ]
+}

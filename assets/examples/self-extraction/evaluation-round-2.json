@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "self-extraction-audit-rubric",
+  "round": 2,
+  "hard_gates": {
+    "required-output": "pass",
+    "rights-and-safety": "pass",
+    "anti-clone": "pass"
+  },
+  "dimension_scores": {
+    "capability-contract-clarity": 90,
+    "evidence-architecture": 88,
+    "representation-and-abstraction": 88,
+    "execution-and-evaluation": 90,
+    "self-application-and-limits": 85
+  },
+  "issues": [],
+  "unresolved_assumptions": [
+    "The structural self-audit is not an independent blinded evaluation.",
+    "The rubric was not frozen before initial v0.2 implementation and does not count as promotion evidence.",
+    "Only text and image forward outputs are bundled.",
+    "Experimental lifecycle status remains appropriate until at least three forward cases pass."
+  ]
+}

@@ -1,0 +1,23 @@
+schema_version: "0.2"
+project_id: "image-forward-test"
+retrieved_at: "2026-07-16T00:00:00+09:00"
+sources:
+  - source_id: "img-src-001"
+    title: "Vintage Travel Poster Paris"
+    source_type: "finished-artifact"
+    artifact_type: "travel-poster"
+    local_path: "assets/examples/image/source-vintage-travel-poster-paris.png"
+    location: "https://commons.wikimedia.org/wiki/File:Vintage_Travel_Poster_Paris.svg"
+    original_location: "https://openclipart.org/detail/224464/vintage-travel-poster-paris"
+    creator: "GDJ"
+    published_at: "2015-08-05"
+    reliability: "primary-file-with-machine-readable-license-metadata"
+    evidence_strength: "single-positive-example"
+    rights:
+      license: "Creative Commons CC0 1.0 Universal Public Domain Dedication"
+      license_url: "https://creativecommons.org/publicdomain/zero/1.0/"
+      permission: "copy, modify, and redistribute worldwide to the extent allowed by law"
+      attribution_required: false
+      attribution_supplied: true
+      redistribution_allowed: true
+    notes: "The local PNG is a 512x702 raster rendering of the CC0 SVG. Anti-clone rules are applied as a generalization test even though close reuse is permitted by the license."

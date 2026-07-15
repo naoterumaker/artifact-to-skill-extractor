@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hokkaido First Light - Round 1</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 800px; height: 1000px; overflow: hidden; }
+    body { font-family: Arial, "Hiragino Kaku Gothic ProN", sans-serif; background: #eee9dc; }
+    .poster { position: relative; width: 800px; height: 1000px; overflow: hidden; color: #123f3a; background: #f1eddf; }
+    .meta { position: absolute; top: 38px; left: 44px; font-size: 16px; font-weight: 700; }
+    .sun { position: absolute; top: 86px; right: 72px; width: 244px; height: 244px; border-radius: 50%; background: #e75f43; }
+    h1 { position: absolute; top: 130px; left: 42px; z-index: 2; margin: 0; width: 700px; font-size: 112px; line-height: 0.82; font-weight: 900; }
+    .jp { position: absolute; top: 360px; left: 48px; z-index: 5; font-size: 28px; font-weight: 700; }
+    .mountain.back { position: absolute; left: -30px; top: 420px; width: 900px; height: 380px; background: #78a697; clip-path: polygon(0 76%, 22% 42%, 35% 60%, 56% 18%, 75% 52%, 100% 34%, 100% 100%, 0 100%); }
+    .mountain.front { position: absolute; left: -80px; top: 510px; width: 980px; height: 360px; background: #174d45; clip-path: polygon(0 65%, 20% 35%, 39% 60%, 62% 20%, 82% 55%, 100% 42%, 100% 100%, 0 100%); }
+    .route { position: absolute; z-index: 4; left: 62px; top: 675px; width: 690px; height: 80px; border-top: 8px solid #f4d9a3; transform: rotate(-7deg); }
+    .train { position: absolute; z-index: 5; left: 520px; top: 655px; width: 184px; height: 46px; border-radius: 4px 28px 4px 4px; background: #f4d9a3; }
+    .train::before { content: ""; position: absolute; left: 18px; top: 10px; width: 104px; height: 13px; background: #174d45; }
+    .train::after { content: ""; position: absolute; left: 28px; bottom: -11px; width: 128px; height: 16px; border-radius: 50%; background: #123f3a; }
+    .copy { position: absolute; z-index: 6; right: 30px; bottom: 40px; width: 380px; color: #708d82; text-align: right; }
+    .copy strong { display: block; font-size: 30px; line-height: 1.05; }
+    .copy span { display: block; margin-top: 10px; font-size: 15px; }
+    .season { position: absolute; left: 44px; bottom: 28px; font-size: 82px; line-height: 1; font-weight: 900; color: #e75f43; }
+  </style>
+</head>
+<body>
+  <main class="poster" aria-label="Hokkaido rail travel poster draft">
+    <div class="meta">RAIL / EAST / 06:12</div>
+    <div class="sun"></div>
+    <h1>HOKKAI<br>DO</h1>
+    <div class="jp">北へ、光のはじまりへ。</div>
+    <div class="mountain back"></div>
+    <div class="mountain front"></div>
+    <div class="route"></div>
+    <div class="train"></div>
+    <div class="season">01</div>
+    <div class="copy">
+      <strong>FOLLOW THE FIRST LIGHT</strong>
+      <span>TAKE THE MORNING TRAIN NORTH</span>
+    </div>
+  </main>
+</body>
+</html>

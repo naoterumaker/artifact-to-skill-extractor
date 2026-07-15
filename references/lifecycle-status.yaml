@@ -1,0 +1,19 @@
+skill: artifact-to-skill-extractor
+version: 0.2.0
+status: experimental
+owner: naoterumaker
+last_validated: "2026-07-16"
+tested_with:
+  - codex
+validated_cases:
+  - id: x-article-forward-test
+    result: pass
+    score: 87.9
+  - id: image-forward-test
+    result: pass
+    score: 88.2
+known_limits:
+  - "Only one forward case has been run for each tested modality."
+  - "Video, research, process-trace, tool/API, and live platform-outcome cases are not yet forward-tested."
+  - "The bundled evaluations are not independent blinded reviews."
+successor: null

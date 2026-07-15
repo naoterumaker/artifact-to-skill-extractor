@@ -1,0 +1,72 @@
+schema_version: "0.2"
+pattern_id: "symbolic-destination-poster"
+title: "Symbolic destination compression"
+intent:
+  starting_state: "The viewer has low attention and no active travel plan."
+  target_state: "The viewer recognizes a destination identity, feels a broader promise, and notices a feasible travel mode."
+  production_function: "Compress a place into one dominant visual idea, widen it through subordinate cues, and bridge desire to access."
+source_elements:
+  - "img-src-001:e1"
+  - "img-src-001:e2"
+  - "img-src-001:e3"
+  - "img-src-001:e4"
+evidence_status: "candidate-from-single-positive-example"
+invariants:
+  - "One dominant anchor carries destination recognition or emotional identity."
+  - "Subordinate motifs widen the promise without becoming equal focal points."
+  - "The destination name shares the visual field with the imagery rather than behaving as unrelated copy."
+  - "A directional travel cue bridges the place promise to a feasible mode of access."
+  - "Large quiet color fields or simple masses stabilize detailed regions."
+variables:
+  anchor:
+    - "landform"
+    - "wildlife"
+    - "vehicle"
+    - "architectural fragment"
+    - "fashion or human gesture"
+  subordinate_cues:
+    - "food"
+    - "street life"
+    - "architecture"
+    - "weather"
+    - "craft"
+    - "landscape"
+  directional_device:
+    - "route line"
+    - "vehicle motion"
+    - "sun path"
+    - "wind"
+    - "repeated perspective"
+  verbal_sequence:
+    - "destination -> promise -> action"
+    - "feeling -> destination -> departure detail"
+    - "occasion -> experience -> booking action"
+constraints:
+  - "The anchor must remain legible at thumbnail size."
+  - "Supporting cues must clarify breadth without creating a second primary focal point."
+  - "The destination name and imagery must cooperate without sacrificing readability."
+  - "The travel cue must remain visible but subordinate to destination desire."
+  - "Dense detail requires an adjacent quiet field or simplified silhouette."
+selection_rules:
+  - "Use a single scenic anchor when calm and immediacy matter more than cultural breadth."
+  - "Use a controlled collage only when multiple destination associations are necessary."
+  - "Use an asymmetrical hierarchy when the new concept would otherwise resemble the source's central montage."
+anti_patterns:
+  - "A collage of many equal attractions."
+  - "Integrated typography that becomes unreadable at thumbnail size."
+  - "A destination symbol selected only because the source used a symbolic figure."
+  - "A travel cue that dominates the place promise."
+anti_clone:
+  - "Do not use TWA/PARIS wording, the draped central figure, the split blue/cream field, the sun face, or the Paris motif collage."
+  - "Do not reproduce the source's text occlusion, aircraft placement, or dense bottom still life."
+  - "Change subject, palette, spatial composition, density, typography, directional mechanism, and CTA."
+transfer_tests:
+  - target_domain: "contemporary Hokkaido rail poster"
+    expected_preservation: "dominant destination identity, subordinate environment, directional access, integrated naming, and staged action"
+    expected_change: "mountain/sun/train subject, morning palette, sparse composition, route line, asymmetrical footer, and 4:5 ratio"
+promotion:
+  status: "experimental"
+  evidence_required:
+    - "Comparative travel posters with different composition systems."
+    - "Thumbnail and mobile placement tests."
+    - "Audience recognition or preference evidence."

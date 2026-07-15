@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "image-forward-test-rubric",
+  "round": 1,
+  "hard_gates": {
+    "required-output": {
+      "status": "pass",
+      "evidence": "Editable HTML and an 800x1000 render exist."
+    },
+    "rights-and-safety": {
+      "status": "pass",
+      "evidence": "The CC0 source, creator, Open Clip Art origin, and license URL are recorded."
+    },
+    "anti-clone": {
+      "status": "pass",
+      "evidence": "The output changes destination, anchor, palette, time, geometry, typographic system, and action mechanism."
+    },
+    "render-integrity": {
+      "status": "pass",
+      "evidence": "The image renders without blank regions or clipping."
+    }
+  },
+  "dimension_scores": {
+    "intent-alignment": {
+      "score": 80,
+      "evidence": "Hokkaido, first light, and rail are all present."
+    },
+    "functional-composition": {
+      "score": 76,
+      "evidence": "The sun, title, mountain, route, and train form a coherent system, but the lower promise is detached from the main hierarchy."
+    },
+    "visual-hierarchy-and-readability": {
+      "score": 58,
+      "evidence": "The low-contrast gray-green CTA and promise are weak against the footer, particularly at thumbnail size."
+    },
+    "delivery-context-fit": {
+      "score": 72,
+      "evidence": "The poster format works, but the call to action does not read quickly enough for a travel promotion surface."
+    },
+    "originality-and-anti-clone": {
+      "score": 88,
+      "evidence": "The expression is materially independent while retaining only the abstract function relations."
+    }
+  },
+  "issues": [
+    {
+      "severity": "critical",
+      "location": "lower-right copy",
+      "criterion": "visual-hierarchy-and-readability",
+      "evidence": "Promise and CTA use low-contrast color, small type, and an isolated right alignment.",
+      "root_layer": "generated-skill/reference-knowledge",
+      "repair": "Require a quiet contrast field and thumbnail inspection for every text block."
+    },
+    {
+      "severity": "major",
+      "location": "verbal hierarchy",
+      "criterion": "functional-composition",
+      "evidence": "The travel action does not visually connect to the route and train.",
+      "root_layer": "current-output",
+      "repair": "Create a dedicated footer hierarchy and use the action accent to connect promise and departure."
+    }
+  ],
+  "unresolved_assumptions": [
+    "No audience recognition or preference test has been run."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "x-article-forward-test-rubric",
+  "frozen_before_generation": true,
+  "pass_contract": {
+    "total_score_minimum": 80,
+    "critical_dimension_minimum": 60,
+    "all_hard_gates_required": true,
+    "maximum_rounds": 3
+  },
+  "hard_gates": [
+    {
+      "id": "required-output",
+      "question": "Does a complete Japanese X Article and proportionate CTA exist?"
+    },
+    {
+      "id": "rights-and-safety",
+      "question": "Are source rights, attribution, and factual safety respected?"
+    },
+    {
+      "id": "anti-clone",
+      "question": "Is the topic, expression, evidence, and concrete structure materially different from the extraction source?"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "intent-alignment",
+      "layer": "universal",
+      "weight": 20,
+      "critical": true,
+      "question": "Does the article move skill builders from adding instructions toward an evaluation loop?"
+    },
+    {
+      "id": "functional-structure",
+      "layer": "text-archetype",
+      "weight": 25,
+      "critical": true,
+      "question": "Do pain, reframing, mechanism, differentiated sections, objection handling, and action form a coherent progression?"
+    },
+    {
+      "id": "claim-and-evidence",
+      "layer": "evidence",
+      "weight": 20,
+      "critical": true,
+      "question": "Are quantitative and causal claims supported, qualified, and traceable?"
+    },
+    {
+      "id": "x-readability-and-impression-proxy",
+      "layer": "platform-objective",
+      "weight": 20,
+      "critical": false,
+      "question": "Is the title relevant, opening immediate, body scannable, and CTA low-friction on X mobile surfaces?"
+    },
+    {
+      "id": "originality-and-anti-clone",
+      "layer": "project",
+      "weight": 15,
+      "critical": true,
+      "question": "Does the output preserve functional logic while changing topic, proof, language, examples, and final expression?"
+    }
+  ]
+}

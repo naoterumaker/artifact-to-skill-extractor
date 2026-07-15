@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "self-extraction-audit-rubric",
+  "frozen_before_generation": false,
+  "pass_contract": {
+    "total_score_minimum": 80,
+    "critical_dimension_minimum": 60,
+    "all_hard_gates_required": true,
+    "maximum_rounds": 3
+  },
+  "hard_gates": [
+    {
+      "id": "required-output",
+      "question": "Do the skill, references, templates, deterministic scripts, tests, and worked outputs exist?"
+    },
+    {
+      "id": "rights-and-safety",
+      "question": "Are source rights, untrusted artifact handling, and claim limits explicit?"
+    },
+    {
+      "id": "anti-clone",
+      "question": "Does the harness distinguish source representation from generative abstraction?"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "capability-contract-clarity",
+      "layer": "activation",
+      "weight": 15,
+      "critical": true,
+      "question": "Are trigger, non-trigger, future outcome, authority, and completion conditions clear?"
+    },
+    {
+      "id": "evidence-architecture",
+      "layer": "evidence",
+      "weight": 20,
+      "critical": true,
+      "question": "Does the skill plan, label, trace, scope, and lawfully store evidence?"
+    },
+    {
+      "id": "representation-and-abstraction",
+      "layer": "abstraction",
+      "weight": 20,
+      "critical": true,
+      "question": "Does it route artifact-native representations and separate concrete schemas from reusable patterns?"
+    },
+    {
+      "id": "execution-and-evaluation",
+      "layer": "harness",
+      "weight": 25,
+      "critical": true,
+      "question": "Can it package a skill, generate a forward output, score it, and route repairs deterministically?"
+    },
+    {
+      "id": "self-application-and-limits",
+      "layer": "metaskill",
+      "weight": 20,
+      "critical": true,
+      "question": "Can the skill expose and repair its own missing layers while reporting evidence limits honestly?"
+    }
+  ]
+}

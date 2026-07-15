@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "image-forward-test-rubric",
+  "round": 2,
+  "hard_gates": {
+    "required-output": {
+      "status": "pass",
+      "evidence": "Editable HTML and an 800x1000 PNG render exist."
+    },
+    "rights-and-safety": {
+      "status": "pass",
+      "evidence": "Source URL, creator, Open Clip Art origin, and worldwide CC0 dedication are recorded."
+    },
+    "anti-clone": {
+      "status": "pass",
+      "evidence": "No TWA/PARIS wording, draped central figure, split blue/cream field, sun face, airplane placement, Paris collage, or source typography remains."
+    },
+    "render-integrity": {
+      "status": "pass",
+      "evidence": "The final 800x1000 render is nonblank; text and graphic regions remain within the canvas without incoherent overlap."
+    }
+  },
+  "dimension_scores": {
+    "intent-alignment": {
+      "score": 90,
+      "evidence": "Morning sun, mountain, northbound train, destination name, and departure copy express one travel promise."
+    },
+    "functional-composition": {
+      "score": 88,
+      "evidence": "The title anchors identity, landscape supplies context, track carries direction, train supplies action, and the footer resolves the promise."
+    },
+    "visual-hierarchy-and-readability": {
+      "score": 86,
+      "evidence": "Destination, sun, promise, and action have distinct levels and high-contrast fields at full size and in the thumbnail check."
+    },
+    "delivery-context-fit": {
+      "score": 84,
+      "evidence": "The 4:5 format, sparse copy, and strong destination label suit a contemporary social or station campaign placement."
+    },
+    "originality-and-anti-clone": {
+      "score": 92,
+      "evidence": "The output preserves symbolic compression and staged action while changing every protected or distinctive concrete axis."
+    }
+  },
+  "issues": [],
+  "unresolved_assumptions": [
+    "Audience recognition, brand fit, and campaign performance remain untested.",
+    "The generated skill remains experimental because its extraction corpus has one source."
+  ]
+}

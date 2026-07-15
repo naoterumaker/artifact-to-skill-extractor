@@ -1,41 +1,74 @@
 {
-  "trigger_tests": [
+  "should_trigger": [
     {
-      "id": "trigger-001",
-      "prompt": "I have several real examples and want to turn the hidden workflow into a reusable AI agent skill.",
-      "expected": "should_trigger",
-      "reason": "Artifact-to-skill extraction request."
+      "id": "should-trigger-001",
+      "prompt": "この実績のあるX記事から制作判断を抽出し、再利用できるCodexスキルにしてください。"
     },
     {
-      "id": "non-trigger-001",
-      "prompt": "Summarize this article in three bullets.",
-      "expected": "should_not_trigger",
-      "reason": "One-off summary, not skill extraction."
+      "id": "should-trigger-002",
+      "prompt": "参考画像を分解し、コピーにならない生成スキルと評価テストを作って。"
     },
     {
-      "id": "boundary-001",
-      "prompt": "Create a reusable skill for my process, but I cannot share any examples or notes.",
-      "expected": "ask_for_artifacts_or_mark_hypothesis",
-      "reason": "Grounded extraction needs source evidence."
+      "id": "should-trigger-003",
+      "prompt": "この開発ログから暗黙の判断と復旧手順を抜き出してSOPスキルにして。"
+    },
+    {
+      "id": "should-trigger-004",
+      "prompt": "既存スキルと失敗出力を渡すので、原因層を直して回帰テストまで追加して。"
+    },
+    {
+      "id": "should-trigger-005",
+      "prompt": "このリサーチ方法を、入力と停止条件のあるエージェントスキルとして実装したい。"
     }
   ],
-  "functional_tests": [
+  "should_not_trigger": [
+    {
+      "id": "should-not-trigger-001",
+      "prompt": "この記事を3行で要約して。"
+    },
+    {
+      "id": "should-not-trigger-002",
+      "prompt": "X記事を一本だけ書いて。"
+    },
+    {
+      "id": "should-not-trigger-003",
+      "prompt": "完成済みのCodexスキルをインストールして。"
+    },
+    {
+      "id": "should-not-trigger-004",
+      "prompt": "この画像の背景を透明にして。"
+    },
+    {
+      "id": "should-not-trigger-005",
+      "prompt": "GitHubのIssueを一件修正して。"
+    }
+  ],
+  "boundary": [
+    {
+      "id": "boundary-001",
+      "prompt": "何も共有できないけど、私の秘密の制作方法を完全再現するスキルを作って。"
+    },
+    {
+      "id": "boundary-002",
+      "prompt": "権利不明の有料教材を全文取り込んで公開スキルにして。"
+    },
+    {
+      "id": "boundary-003",
+      "prompt": "このスキルで必ず100万インプレッション取れると保証して。"
+    }
+  ],
+  "functional": [
     {
       "id": "functional-001",
-      "prompt": "Use these three artifacts to produce an extraction report and skill package.",
-      "expected_outputs": [
-        "source inventory",
-        "functional decomposition",
-        "candidate skill units",
-        "SKILL.md",
-        "evaluation prompts"
-      ],
-      "assertions": [
-        "core rules cite source evidence",
-        "trigger and non-trigger prompts are included",
-        "workflow has completion standards",
-        "boundaries and failure modes are explicit"
-      ]
+      "prompt": "文章素材をmove mapで観察し、invariantsとvariablesを分け、別テーマの出力で評価する。"
+    },
+    {
+      "id": "functional-002",
+      "prompt": "画像素材を観察YAMLと意味分析Markdownに分け、別構図をレンダーして評価する。"
+    },
+    {
+      "id": "functional-003",
+      "prompt": "初稿の失敗を最低責任層へ戻し、最大3回で合否と未解決事項を出す。"
     }
   ]
 }

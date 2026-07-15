@@ -1,119 +1,74 @@
 # Evaluation And Tests
 
-Treat a skill like a small product. It needs trigger tests, functional tests, boundary tests, and update tests.
+This is the compatibility entry point for v0.2 evaluation. Read `rubric-design.md`, `evaluator-protocol.md`, and `repair-routing.md` for the operative method.
 
-## Trigger Tests
+## Test Surfaces
 
-Create realistic prompts, not obvious keyword lists.
+Every generated skill needs four prompt-test classes and at least one forward test.
 
-Minimum set:
+| Surface | Minimum | Purpose |
+|---|---:|---|
+| Should trigger | 5 | Confirm realistic activation language |
+| Should not trigger | 5 | Detect broad or ambiguous activation |
+| Boundary | 3 | Confirm clarification, refusal, or routing behavior |
+| Functional | 3 | Confirm required artifacts and decisions |
+| Forward output | 1 | Test the skill on an unseen related input |
 
-- 5 should-trigger prompts
-- 5 should-not-trigger near misses
-- 3 boundary prompts where the right action is to ask for clarification or route elsewhere
+Prompt tests alone do not establish output quality. The forward output must be evaluated.
 
-Good should-trigger examples include:
+## Frozen Rubric
 
-- user provides artifacts and asks to "turn this into a reusable skill"
-- user asks to "extract the hidden workflow from these examples"
-- user has a process transcript and wants an SOP
-- user wants a rubric from good/bad outputs
+Create the rubric before generation using `assets/templates/evaluation-rubric.json`. Weights must total 100.
 
-Good should-not-trigger examples include:
+Default contract:
 
-- user wants a one-off summary
-- user wants a single content piece written now
-- user asks for generic advice with no artifacts
-- user wants to install a finished skill without changing it
-
-## Functional Tests
-
-For each core workflow, define:
-
-```yaml
-id: case-001
-input_artifacts:
-  - type: artifact or transcript
-task: what the user asks
-expected_outputs:
-  - extraction report
-  - candidate skill units
-  - packaged SKILL.md
-assertions:
-  - source evidence is cited
-  - triggers and non-triggers are included
-  - workflow has input/output/completion standards
-  - failure modes are named
-  - tests are generated
+```text
+total score >= 80
+each critical dimension >= 60
+all hard gates pass
+maximum 3 rounds
 ```
 
-## Rubric
+Use `scripts/score_evaluation.py` to calculate the decision. The script validates arithmetic and gates; the evaluator remains responsible for evidence-backed judgments.
 
-Score each dimension 1-5.
+## Evaluation Record
 
-| Dimension | 1 | 3 | 5 |
-|---|---|---|---|
-| Evidence grounding | Unsupported claims | Some source links | Every core rule traced to evidence |
-| Transferability | Source-specific | Works for similar cases | Works across novel cases with boundaries |
-| Specificity | Generic advice | Some operational rules | Precise decisions and stop conditions |
-| Trigger quality | Too broad/vague | Mostly right | Clear trigger, non-trigger, boundary cases |
-| Executability | Not actionable | Partially actionable | Inputs, steps, outputs, verification clear |
-| Maintainability | Brittle or huge | Usable with edits | Modular, lean, easy to update |
-| Safety/copyright | Copies too much or leaks private data | Some caution | Respects privacy and copyright by design |
+Use `assets/templates/evaluation-result.json`. Each score requires observable evidence. Each issue must name:
 
-Block delivery if evidence grounding, executability, or safety/copyright is 1.
+- severity
+- artifact location
+- violated criterion
+- evidence
+- lowest responsible layer
+- required repair
 
-## Regression Tests From Feedback
+Do not award a passing score based on confidence or fluency alone.
 
-When the user corrects the skill:
+## Regression From Feedback
 
-1. Quote or summarize the correction.
-2. Name the failure type.
-3. Add one prompt that reproduces the failure.
-4. Add the expected behavior.
-5. Patch the smallest section.
+When the user corrects an output:
 
-Failure types:
+1. Preserve the correction as evidence.
+2. Classify the defect.
+3. Add a case that reproduces it.
+4. Locate the lowest responsible layer.
+5. Patch only that layer.
+6. Re-run affected tests and at least one prior passing case.
+
+Common failure labels:
 
 - `trigger-too-broad`
 - `trigger-too-narrow`
 - `surface-copying`
 - `generic-output`
+- `representation-mismatch`
+- `unsupported-inference`
 - `missing-boundary`
 - `missing-source-check`
 - `wrong-resource-placement`
-- `unsupported-script`
-- `copyright-risk`
+- `rubric-mismatch`
+- `copyright-or-privacy-risk`
 
-## Test Prompt JSON Shape
+## Performance Claims
 
-```json
-{
-  "trigger_tests": [
-    {
-      "id": "trigger-001",
-      "prompt": "I have three high-performing LPs. Extract the reusable workflow and turn it into a Codex skill.",
-      "expected": "should_trigger",
-      "reason": "Requests example-to-skill extraction from artifacts."
-    }
-  ],
-  "functional_tests": [
-    {
-      "id": "functional-001",
-      "prompt": "Use the attached call transcript to create an intake skill.",
-      "expected_outputs": ["source inventory", "candidate units", "SKILL.md", "tests"],
-      "assertions": ["cites transcript moments", "includes boundaries"]
-    }
-  ]
-}
-```
-
-## Review Questions
-
-Before final delivery, ask internally:
-
-- Would the skill activate for the right future requests?
-- Would it avoid nearby wrong requests?
-- Can a future agent execute it without asking the user to design the method again?
-- Are details loaded only when needed?
-- Is the abstraction still connected to the concrete evidence?
+For platform outcomes such as impressions, retention, conversion, or revenue, pre-publication evaluation is only a proxy. Record actual analytics when available, compare them with the prediction, and use the discrepancy as new evidence. Never convert a rubric score into a guaranteed real-world result.

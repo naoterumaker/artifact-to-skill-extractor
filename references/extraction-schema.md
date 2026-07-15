@@ -1,6 +1,6 @@
 # Extraction Schema
 
-Use this schema to convert concrete evidence into reusable production knowledge. Keep source evidence separate from inferred rules.
+Use this schema to convert concrete evidence into reusable production knowledge. It is a conceptual schema, not a requirement to serialize every artifact as YAML. Choose the representation with `representation-router.md` and keep source evidence separate from inferred rules.
 
 ## Source Inventory
 
@@ -14,6 +14,17 @@ Use this schema to convert concrete evidence into reusable production knowledge.
 | `intended_outcome` | What the artifact tries to make happen |
 | `evidence_strength` | Strong, medium, weak, or hypothesis |
 | `rights_note` | Any copying, quoting, privacy, or confidentiality constraint |
+
+## Claim Status
+
+Every extracted claim must carry one status:
+
+| Status | Meaning |
+|---|---|
+| `observed` | Directly present and locatable in the source |
+| `inferred` | Plausible production intent supported by observations |
+| `user-confirmed` | Explicitly validated by the user or creator |
+| `hypothesis` | Useful candidate requiring further evidence or a transfer test |
 
 ## Element Extraction
 
@@ -33,6 +44,8 @@ Use one row per meaningful element.
 | `failure_modes` | How does this fail when copied blindly? |
 | `transferability` | High, medium, low, or source-specific |
 | `candidate_skill_unit` | Which reusable unit might this feed? |
+
+For non-text artifacts, replace `surface` and `sequence_position` with artifact-native fields such as region, timeline, spatial relation, state, or transition. Preserve the same functional questions without forcing the same data shape.
 
 ## Candidate Skill Unit
 
@@ -63,7 +76,7 @@ resources_needed:
   scripts: []
   references: []
   assets: []
-status: verified | hypothesis | rejected
+status: experimental | active | narrowed | rejected
 ```
 
 ## Verification Record
@@ -116,3 +129,5 @@ When time is short, capture only:
 3. Candidate skill units
 4. Verification decisions
 5. Proposed skill package structure
+
+The report must also identify which details remain source-specific and which anti-clone rules prevent direct surface reproduction.

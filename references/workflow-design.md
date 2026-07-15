@@ -1,121 +1,117 @@
 # Workflow Design
 
-This is the full artifact-to-skill pipeline.
+This document expands the v0.2 harness in `SKILL.md`. It is retained as a compatibility reference for users of v0.1.
 
-## Phase 0: Scope And Source Gate
+## Pipeline
 
-1. Confirm the desired output: analysis report, new skill, skill update, or library design.
-2. Confirm source artifacts and access paths.
-3. Identify confidentiality, copyright, or quoting limits.
-4. Define the target future user: who will invoke the skill, for what task, in what environment.
+### Phase 0: Capability Contract
 
-Stop and ask for source material if the user wants grounded extraction but provided none.
+Define the capability, future user, execution environment, trigger, required inputs, output contract, quality target, and prohibited behavior. Assume skill construction is the requested outcome; do not spend a phase debating whether a skill should exist.
 
-## Phase 1: Source Reading
+### Phase 1: Evidence Plan
 
-Read all supplied material before naming a final workflow. Build a source inventory first.
+Inventory supplied artifacts before asking questions. Separate:
 
-For large sources:
+- supplied evidence
+- missing evidence
+- user knowledge that requires confirmation
+- external research axes
+- rights and privacy constraints
 
-- Sample structure first: table of contents, headings, README, sitemap, transcript timestamps, tests.
-- Extract high-signal zones: openings, endings, examples, errors, corrections, evaluation sections.
-- Track what was not read so assumptions are visible.
+For research, define the question, preferred source types, minimum evidence, freshness class, and stop condition. Popularity is a discovery signal, not proof of quality.
 
-## Phase 2: Functional Decomposition
+### Phase 2: Native Observation
 
-Create element rows with the extraction schema.
+Choose the representation by artifact mechanics:
 
-Ask these questions repeatedly:
-
-- What does this element make possible?
-- What would break if it were removed?
-- What input did the creator need to decide this?
-- What alternative could have been chosen?
-- What makes this artifact-specific versus reusable?
-
-## Phase 3: Candidate Unit Design
-
-Group elements into candidate units. Use this decision table:
-
-| Signal | Action |
+| Artifact | Primary representation |
 |---|---|
-| Same function appears across multiple sources | Create or strengthen a unit |
-| One source has a strong named method | Create a unit if transfer passes |
-| Element is useful only inside a larger workflow | Keep as step or example |
-| Element is generic advice | Demote to supporting note |
-| Element requires exact commands or transforms | Consider script-backed skill |
-| Several units share inputs and output | Merge into one workflow skill |
+| Text | Annotated Markdown, move map, argument graph, voice profile |
+| Image | Observation YAML or JSON plus interpretive Markdown |
+| Video | Timeline, shot map, audio/visual relation map |
+| Research | Evidence table, query log, contradiction graph |
+| Process | State machine, decision table, exception map |
+| Tool/API | Interface schema, state model, error/recovery table |
 
-## Phase 4: Verification
+Serialization is not abstraction. A detailed image YAML can still encode one exact image.
 
-Run the gates from `extraction-schema.md`. At minimum:
+### Phase 3: Evidence-Labeled Inference
 
-1. Evidence: cite the source rows.
-2. Transfer: test a novel scenario.
-3. Specificity: explain why the rule is not generic.
-4. Trigger: write should-trigger and should-not-trigger prompts.
-5. Executability: list required inputs and done criteria.
-6. Boundary: list non-use cases.
+Keep claims in separate classes:
 
-## Phase 5: Skill Architecture
+- `observed`: directly present in the artifact
+- `inferred`: a plausible explanation of the production choice
+- `user-confirmed`: explicitly validated by the user or creator
+- `hypothesis`: useful but not yet adequately supported
 
-Choose structure:
+Do not present inferred creator intent as observation.
 
-| Situation | Structure |
+### Phase 4: Pattern Abstraction
+
+Convert observations into a generative pattern:
+
+1. State the starting and target audience/user state.
+2. Name the production function.
+3. Separate invariants from variables.
+4. Add constraints among variables.
+5. Add selection rules for variants.
+6. Record anti-patterns and anti-clone rules.
+7. Link every candidate invariant to source evidence.
+
+One source yields candidate invariants. Comparative evidence or transfer tests are required before claiming universality.
+
+### Phase 5: Rubric Freeze
+
+Define the rubric before generating the skill or test output. Combine:
+
+- universal quality, rights, and safety
+- skill archetype and modality quality
+- platform and objective fit
+- project-specific taste and constraints
+
+The default pass contract is total score `>= 80`, every critical dimension `>= 60`, all hard gates passing, and at most three rounds.
+
+### Phase 6: Skill Package
+
+Use one coherent skill unless independent triggers or execution environments require separation.
+
+| Knowledge | Destination |
 |---|---|
-| One coherent workflow | One skill with references |
-| Multiple independent methods | Skill set with index |
-| Heavy source knowledge | Lean `SKILL.md` plus on-demand references |
-| Deterministic transform | Add scripts |
-| Reusable output format | Add assets/templates |
-| Many related skills | Add relation map: depends-on, composes-with, contrasts-with |
+| Trigger, decision routing, core procedure | `SKILL.md` |
+| Detailed methods, domain rules, examples | `references/` |
+| Templates and files copied into outputs | `assets/` |
+| Deterministic transforms and validators | `scripts/` |
+| Mutable run evidence and evaluations | Project workspace outside the installed skill |
 
-## Phase 6: Skill Writing
+### Phase 7: Forward Test
 
-Write in this order:
+Use the generated skill on an unseen but related input. Generate a real output, not only prompt tests. Evaluate that output with the frozen rubric.
 
-1. Name: kebab-case, action-oriented.
-2. Description: triggering conditions only; include non-triggers when needed.
-3. Core principle: one or two sentences.
-4. Workflow decision tree or modes.
-5. Steps with input, action, output, completion standard.
-6. Boundaries and failure modes.
-7. References/resources.
-8. Tests and rubric.
+### Phase 8: Repair Loop
 
-Avoid putting a long theory essay in `SKILL.md`. The agent needs a way to act.
+Route each failure to the lowest responsible layer:
 
-## Phase 7: Evaluation
+1. current output
+2. generated `SKILL.md`
+3. reference knowledge
+4. asset template
+5. abstraction pattern
+6. source evidence
+7. evaluation rubric
 
-Use four layers:
+Repair, regenerate, and re-evaluate. Do not permanently modify the skill for a one-off defect unless it reveals a recurring rule.
 
-- Trigger tests: does the agent load the skill at the right time?
-- Functional tests: does the workflow produce the expected artifact?
-- Boundary tests: does the agent refuse or defer when the skill should not apply?
-- Update tests: does the skill improve after feedback without breaking its original cases?
+### Phase 9: Promotion
 
-## Phase 8: Delivery
+Promote only when evidence, traceability, specificity, abstraction, anti-clone behavior, trigger quality, executability, boundaries, and output quality pass. Otherwise keep the result experimental, narrow its scope, or request stronger evidence.
 
-For a new skill, deliver:
+## Stop Conditions
 
-- Skill folder path
-- Source inventory and extraction report
-- Files created
-- Validation performed
-- Known assumptions
-- Next test prompts
+Stop and surface the gap when:
 
-For a skill update, deliver:
+- required evidence is unavailable or cannot be used lawfully
+- the desired outcome cannot be evaluated even by a credible proxy
+- three repair rounds fail the pass contract
+- contradictory sources cannot be resolved without a human decision
 
-- Evidence for change
-- Files changed
-- Old failure and new guardrail
-- Regression prompts
-
-## Anti-Patterns During Workflow Design
-
-- Treating media as the method: "X writing skill" instead of "compressed thesis construction skill"
-- Producing a prompt library without triggers or boundaries
-- Turning every section into its own skill
-- Writing advice that cannot be tested
-- Removing all source-specific texture and leaving generic strategy words
+Deliver the best auditable attempt with unresolved assumptions rather than silently inventing certainty.

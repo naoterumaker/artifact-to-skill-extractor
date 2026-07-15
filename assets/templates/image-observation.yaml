@@ -1,0 +1,42 @@
+schema_version: "0.2"
+source_id: "src-001"
+artifact:
+  path_or_url: ""
+  width: null
+  height: null
+  aspect_ratio: ""
+  delivery_context: ""
+canvas:
+  frame: ""
+  margins: ""
+  dominant_orientation: ""
+regions: []
+entities:
+  - entity_id: "entity-001"
+    type: ""
+    observed_description: ""
+    bounding_region: ""
+    scale_role: ""
+relations:
+  - from: ""
+    relation: ""
+    to: ""
+visual_hierarchy:
+  first: ""
+  second: ""
+  third: ""
+visual_system:
+  palette: []
+  value_structure: ""
+  typography: ""
+  texture: ""
+  negative_space: ""
+interpretations:
+  - claim: ""
+    evidence: []
+    confidence: "low"
+candidate_functions: []
+source_specific_details: []
+rights:
+  license: ""
+  attribution: ""

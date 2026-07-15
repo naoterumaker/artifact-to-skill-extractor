@@ -2,6 +2,77 @@
 
 This skill borrows design patterns from the following reviewed projects and adapts them for arbitrary artifact-to-skill extraction.
 
+These sources are design influences, not proof that any extracted rule will improve a user's output. The harness still requires source tracing, forward tests, and scoped lifecycle decisions.
+
+## Programmatic Skill Induction And Workflow Memory
+
+Sources:
+
+- https://github.com/zorazrw/agent-skill-induction
+- https://github.com/zorazrw/agent-workflow-memory
+
+Useful pattern:
+
+- Induce candidate procedures from execution evidence, validate them, and expose only accepted procedures to later runs.
+- Remove example-specific context while preserving executable structure.
+
+Adaptation:
+
+- This skill separates observation from generative abstraction and uses promotion gates rather than treating every extraction as reusable knowledge.
+
+## EvoSkill And MemSkill
+
+Sources:
+
+- https://github.com/sentient-agi/EvoSkill
+- https://github.com/ViktorAxelsen/MemSkill
+
+Useful pattern:
+
+- Failed or difficult trajectories expose missing capabilities.
+- Skill improvement needs held-out evaluation rather than self-asserted progress.
+
+Adaptation:
+
+- `failure-harvest-loop.md` separates one-run repair from repeated-failure promotion and preserves rejected hypotheses.
+
+## Lenny Skills Database
+
+Source: https://sidbharath.com/blog/building-lenny-skills-database/
+
+Useful pattern:
+
+- Large knowledge corpora benefit from an explicit taxonomy plus a route for genuinely novel categories.
+- Unbounded bottom-up framework collection creates duplicate and weakly scoped units.
+
+Adaptation:
+
+- This skill starts from a capability contract and archetype, then allows evidence to challenge that frame. It does not make a fixed content taxonomy the abstraction.
+
+## Evidence-Backed Multi-Agent Extraction
+
+Source: https://github.com/glebis/claude-skills
+
+Useful pattern:
+
+- Parallel extraction is useful when outputs retain evidence locations and can be resumed or reconciled.
+
+Adaptation:
+
+- `cost-aware-extraction.md` permits parallel workers only after a shared schema, evidence labels, and rubric exist, with one contradiction-resolution pass.
+
+## Mind Cloning Engineering
+
+Source: https://github.com/yzfly/Mind-Cloning-Engineering
+
+Useful pattern:
+
+- Separate behavioral layers and express important decisions explicitly rather than relying only on similarity retrieval.
+
+Adaptation:
+
+- The harness separates invariant logic, modality/platform adapters, concrete evidence, assets, and deterministic scripts.
+
 ## SkillNet
 
 Source: https://github.com/zjunlp/SkillNet

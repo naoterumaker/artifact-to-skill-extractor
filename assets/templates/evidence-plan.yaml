@@ -1,0 +1,21 @@
+schema_version: "0.2"
+project_id: "replace-me"
+supplied_artifacts: []
+research_axes:
+  - axis_id: "axis-001"
+    question: ""
+    why_needed: ""
+    preferred_sources: []
+    minimum_evidence: ""
+    freshness: "stable"
+    stop_condition: ""
+collection_constraints:
+  maximum_sources: null
+  maximum_time_minutes: null
+  languages: []
+  jurisdictions: []
+rights_requirements: []
+approval:
+  proposed_at: null
+  approved_by_user: false
+  changes: []

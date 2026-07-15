@@ -1,0 +1,22 @@
+schema_version: "0.2"
+skill:
+  name: ""
+  trigger_description: ""
+  primary_archetype: ""
+  secondary_archetypes: []
+inputs:
+  required: []
+  optional: []
+outputs: []
+workflow: []
+decision_rules: []
+boundaries: []
+resources:
+  references: []
+  assets: []
+  scripts: []
+tests:
+  should_trigger: []
+  should_not_trigger: []
+  boundary: []
+  functional: []

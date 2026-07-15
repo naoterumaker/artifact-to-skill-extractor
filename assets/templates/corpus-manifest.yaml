@@ -1,0 +1,23 @@
+schema_version: "0.2"
+project_id: "replace-me"
+sources:
+  - source_id: "src-001"
+    title: ""
+    source_type: "artifact"
+    artifact_type: ""
+    location: ""
+    creator: ""
+    published_at: null
+    acquired_at: null
+    observed_outcome: null
+    reliability: "unknown"
+    evidence_strength: "unknown"
+    rights:
+      license: "unknown"
+      permission: "unknown"
+      quotation_limit: ""
+      redistribution_allowed: false
+    freshness:
+      class: "stable"
+      last_verified_at: null
+    notes: ""

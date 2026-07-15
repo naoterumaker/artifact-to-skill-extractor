@@ -1,0 +1,33 @@
+schema_version: "0.2"
+project_id: "replace-me"
+desired_capability: ""
+primary_archetype: ""
+secondary_archetypes: []
+future_user: ""
+execution_environment: ""
+trigger:
+  situation: ""
+  example_phrases: []
+inputs:
+  required: []
+  optional: []
+outputs:
+  required: []
+  completion_standard: ""
+authority:
+  agent_may_decide: []
+  human_approval_required: []
+quality_target:
+  total_score_minimum: 80
+  critical_dimension_minimum: 60
+  maximum_rounds: 3
+constraints: []
+prohibited_actions: []
+content_context:
+  modality: null
+  platform: null
+  primary_objective: null
+  secondary_objectives: []
+  audience_state: null
+assumptions: []
+open_questions: []

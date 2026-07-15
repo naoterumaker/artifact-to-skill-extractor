@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "rubric-001",
+  "frozen_before_generation": true,
+  "pass_contract": {
+    "total_score_minimum": 80,
+    "critical_dimension_minimum": 60,
+    "all_hard_gates_required": true,
+    "maximum_rounds": 3
+  },
+  "hard_gates": [
+    {
+      "id": "required-output",
+      "question": "Does the required output exist and match the contract?"
+    },
+    {
+      "id": "rights-and-safety",
+      "question": "Are rights, privacy, safety, and prohibited-action constraints satisfied?"
+    },
+    {
+      "id": "anti-clone",
+      "question": "Does the output preserve function without copying protected expression?"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "intent-alignment",
+      "layer": "universal",
+      "weight": 20,
+      "critical": true,
+      "question": "Does the output achieve the agreed capability and user-state change?",
+      "anchors": {
+        "0": "Contradicts or ignores the intent.",
+        "60": "Meets the basic intent with material gaps.",
+        "80": "Meets the intent clearly and reliably.",
+        "100": "Exceeds the intent with precise evidence-backed execution."
+      }
+    },
+    {
+      "id": "evidence-grounding",
+      "layer": "universal",
+      "weight": 20,
+      "critical": true,
+      "question": "Are important decisions traceable to evidence or user confirmation?",
+      "anchors": {
+        "0": "Unsupported.",
+        "60": "Partially traceable.",
+        "80": "Core decisions are traceable.",
+        "100": "Complete and auditable traceability."
+      }
+    },
+    {
+      "id": "archetype-quality",
+      "layer": "archetype",
+      "weight": 30,
+      "critical": true,
+      "question": "Does the output meet the selected archetype's quality standard?",
+      "anchors": {
+        "0": "Unusable.",
+        "60": "Minimally usable.",
+        "80": "Production-ready.",
+        "100": "Exceptional."
+      }
+    },
+    {
+      "id": "platform-objective-fit",
+      "layer": "platform-objective",
+      "weight": 15,
+      "critical": false,
+      "question": "Is the output adapted to the selected delivery context and objective?",
+      "anchors": {
+        "0": "No fit.",
+        "60": "Basic fit.",
+        "80": "Strong fit.",
+        "100": "Excellent fit backed by current evidence."
+      }
+    },
+    {
+      "id": "project-specific-quality",
+      "layer": "project",
+      "weight": 15,
+      "critical": false,
+      "question": "Does the output satisfy project-specific taste and constraints?",
+      "anchors": {
+        "0": "Violates project constraints.",
+        "60": "Partially aligned.",
+        "80": "Clearly aligned.",
+        "100": "Distinctive and fully aligned."
+      }
+    }
+  ]
+}

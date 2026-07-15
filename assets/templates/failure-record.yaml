@@ -1,0 +1,15 @@
+schema_version: "0.2"
+failure_id: "fail-001"
+occurred_at: null
+skill_version: ""
+case_id: ""
+artifact_location: ""
+expected: ""
+observed: ""
+rubric_dimension: ""
+severity: "major"
+root_layer: "output"
+repair_applied: ""
+repair_result: "unchanged"
+privacy: "private"
+candidate_cluster: null

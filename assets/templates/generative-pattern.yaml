@@ -1,0 +1,19 @@
+schema_version: "0.2"
+pattern_id: "pattern-001"
+title: ""
+intent:
+  starting_state: ""
+  target_state: ""
+  production_function: ""
+source_elements: []
+evidence_status: "hypothesis"
+invariants: []
+variables: {}
+constraints: []
+selection_rules: []
+anti_patterns: []
+anti_clone: []
+transfer_tests: []
+promotion:
+  status: "candidate"
+  evidence_required: []

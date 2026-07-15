@@ -1,0 +1,18 @@
+schema_version: "0.2"
+transfer_test:
+  pattern_id: "pattern-001"
+  source_domain: ""
+  source_artifacts: []
+  target_domain: ""
+  target_artifacts: []
+  baseline: ""
+  evaluator: ""
+  scoring:
+    reproducibility: null
+    improvement_over_baseline: null
+    target_constraint_preservation: null
+    anti_clone_independence: null
+    evidence_traceability: null
+  average_score: null
+  minimum_dimension_score: null
+  decision: "revise"

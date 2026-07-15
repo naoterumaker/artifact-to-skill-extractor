@@ -1,0 +1,10 @@
+schema_version: "0.2"
+skill: ""
+version: "0.1.0"
+status: "experimental"
+owner: ""
+last_validated: null
+tested_with: []
+validated_cases: []
+known_limits: []
+successor: null

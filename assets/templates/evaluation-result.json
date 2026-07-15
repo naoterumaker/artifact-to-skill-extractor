@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.2",
+  "rubric_id": "rubric-001",
+  "round": 1,
+  "hard_gates": {
+    "required-output": {
+      "status": "pass",
+      "evidence": ""
+    },
+    "rights-and-safety": {
+      "status": "pass",
+      "evidence": ""
+    },
+    "anti-clone": {
+      "status": "pass",
+      "evidence": ""
+    }
+  },
+  "dimension_scores": {
+    "intent-alignment": {
+      "score": 0,
+      "evidence": ""
+    },
+    "evidence-grounding": {
+      "score": 0,
+      "evidence": ""
+    },
+    "archetype-quality": {
+      "score": 0,
+      "evidence": ""
+    },
+    "platform-objective-fit": {
+      "score": 0,
+      "evidence": ""
+    },
+    "project-specific-quality": {
+      "score": 0,
+      "evidence": ""
+    }
+  },
+  "issues": [],
+  "unresolved_assumptions": []
+}
